@@ -125,6 +125,14 @@
             margin-left: 4px;
         }
 
+        .hero-tagline {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: var(--accent);
+            margin: 4px 0 18px;
+            letter-spacing: 0.2px;
+        }
+
         .hero p {
             font-size: 1.05em;
             color: var(--text-secondary);
@@ -290,6 +298,7 @@
             nav { padding: 20px; }
         }
     </style>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
 <body>
     <nav>
@@ -300,7 +309,8 @@
     <main>
     <div class="hero">
         <h1>Sebastian Becerra<span class="dot"></span></h1>
-        <p>I build the systems layer that helps teams make better decisions: data pipelines, automation workflows, and analytics infrastructure. 7+ years shipping production systems. Bilingual EN/ES.</p>
+        <p class="hero-tagline">Marketing/Business Analytics &amp; Operations | Data, Systems, Automation, Product | Bilingual EN/ES</p>
+        <p>I enjoy building the systems layer that help customers succeed and marketing &amp; biz dev teams make better decisions: data pipelines, automation workflows, and analytics infrastructure. 6+ years implementing production systems across multi-brand organizations. Occasionally I dabble in side projects.</p>
         <div class="meta">
             <span>San Diego / Santa Barbara, CA</span>
             <a href="https://linkedin.com/in/sbecerra1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -311,6 +321,12 @@
     <div class="section">
         <div class="section-label">Live Projects</div>
         <div class="projects">
+            <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
+                <span class="tag">Live</span>
+                <h3>BorderPulse</h3>
+                <p>Real-time US-Mexico border wait times with peso exchange rate. 43 per-crossing SEO pages, 15-min auto-refresh via GitHub Actions, PWA, privacy-first analytics.</p>
+                <span class="stack">Vite, React, Tailwind, shadcn/ui</span>
+            </a>
             <a href="https://healthcare-access-gap-jbn83kds39tgjjsxgdmeg4.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card">
                 <span class="tag">Live</span>
                 <h3>Healthcare Access Gap Finder</h3>
@@ -328,6 +344,12 @@
                 <h3>VerdeAzul</h3>
                 <p>Community longevity index scoring 2,820 US counties on healthcare access, food availability, and economic equity. Real CDC, Census, and EPA data.</p>
                 <span class="stack">Python, SQL, Streamlit, Plotly</span>
+            </a>
+            <a href="https://sbc1-code.github.io/sbb-dash/" target="_blank" rel="noopener noreferrer" class="card">
+                <span class="tag">Live</span>
+                <h3>SB Business Forecast</h3>
+                <p>7-day demand predictions for Santa Barbara businesses. Weather, cruise ship schedules, and local event signals fused into a single 0-100 score. Auto-updated daily via GitHub Actions.</p>
+                <span class="stack">JavaScript, GitHub Actions, APIs</span>
             </a>
             <a href="https://sbc1-code.github.io/price-configurator/" target="_blank" rel="noopener noreferrer" class="card">
                 <span class="tag">Live</span>
@@ -400,8 +422,8 @@
         <div class="background-grid">
             <div class="bg-item">
                 <div class="role">Digital Content Specialist</div>
-                <div class="org">Enterprise hardware company, 6 years</div>
-                <div class="detail">GA4/GTM analytics infrastructure across 250K+ annual sessions. Built AI-powered pricing configurator. Multi-brand content operations and marketing automation.</div>
+                <div class="org">Enterprise hardware company, 6+ years</div>
+                <div class="detail">GA4/GTM analytics infrastructure across 250K+ annual sessions. UA to GA4 migration. Programmatic QA via WordPress REST API. Multi-brand content operations across 4 sites and 3 business units.</div>
             </div>
             <div class="bg-item">
                 <div class="role">Consulting</div>
