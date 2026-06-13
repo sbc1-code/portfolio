@@ -1,0 +1,3 @@
+# Local dev-server config for the preview tool, not part of the site
+.claude/
+.DS_Store

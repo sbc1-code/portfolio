@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sebastian Becerra | GTM Operations &amp; Analytics</title>
-    <meta name="description" content="Sebastian Becerra builds the operating layer around growth: GTM systems, marketing operations, analytics, automation, and the reporting that turns messy work into decisions leadership can defend. Bilingual EN/ES. Santa Barbara / San Diego, CA.">
-    <meta property="og:title" content="Sebastian Becerra | GTM Operations &amp; Analytics">
-    <meta property="og:description" content="The operating layer around growth: GTM systems, marketing operations, analytics, automation, and reporting. A builder who ships.">
+    <title>Sebastian Becerra | Marketing Operations &amp; Analytics</title>
+    <meta name="description" content="Sebastian Becerra, Marketing Operations &amp; Analytics. I own GA4 and Google Tag Manager tracking architecture, technical SEO, and the Python and AI automation that turn marketing data into reporting leadership can act on. Bilingual EN/ES. Santa Barbara / San Diego, CA.">
+    <meta property="og:title" content="Sebastian Becerra | Marketing Operations &amp; Analytics">
+    <meta property="og:description" content="Marketing Operations &amp; Analytics: GA4, Google Tag Manager, tracking architecture, technical SEO, Python, and AI automation. An operator who builds his own tools.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://sbc1-code.github.io/portfolio/">
     <link rel="canonical" href="https://sbc1-code.github.io/portfolio/">
@@ -15,7 +15,7 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Sebastian Becerra",
-        "jobTitle": "GTM Operations & Analytics",
+        "jobTitle": "Marketing Operations & Analytics",
         "url": "https://sbc1-code.github.io/portfolio/",
         "sameAs": [
             "https://github.com/sbc1-code",
@@ -244,6 +244,26 @@
             padding-top: 4px;
         }
 
+        .card .card-note {
+            font-size: 0.76em;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        .card-link {
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            width: fit-content;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1px;
+        }
+
+        .card-link:hover { color: var(--text); border-color: var(--text); }
+        .card-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
         /* Compact cards for the secondary "Also built" grid */
         .projects.secondary { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
         .card.compact { padding: 16px; gap: 6px; }
@@ -331,11 +351,11 @@
     <main>
     <div class="hero">
         <h1>Sebastian Becerra<span class="dot"></span></h1>
-        <p class="hero-tagline">Marketing Operations &amp; Analytics | GTM Systems · RevOps · Automation · AI | Bilingual EN/ES</p>
-        <p>I build the operating layer around growth: the tracking, workflows, automation, and reporting that make messy marketing and GTM systems measurable, repeatable, and less manual. Six years running analytics and marketing operations at SeeScan across three brand properties and 250K+ annual sessions at 92% organic. On the side, I ship tools through Digito for problems that keep showing up.</p>
+        <p class="hero-tagline">Marketing Operations &amp; Analytics | GA4, Google Tag Manager &amp; tracking architecture · Technical SEO · Python · AI automation | Bilingual EN/ES</p>
+        <p>I run the measurement and operations layer behind marketing: GA4 and Google Tag Manager tracking architecture, technical SEO, automated reporting, and the Python and AI automation that keep the data reliable and cut the manual work. Six years owning analytics and web operations at SeeScan, a B2B hardware manufacturer, across three brand sites and 250K+ annual sessions at 92% organic. I am an operator who builds his own tools: through Digito, my independent studio, I ship the analytics and automation I keep needing. Bilingual EN/ES, with a US-Mexico border background.</p>
         <div class="meta">
             <span>Santa Barbara / San Diego, CA</span>
-            <span class="open-to">Open to GTM Operations · RevOps · Marketing Operations · Business Systems — Remote</span>
+            <span class="open-to">Open to Marketing Operations, Analytics &amp; Marketing Automation roles · Remote</span>
             <a href="https://digito.technology" target="_blank" rel="noopener noreferrer">Digito</a>
             <a href="https://linkedin.com/in/sbecerra1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -343,12 +363,14 @@
     </div>
 
     <div class="section">
-        <div class="section-label">GTM, Marketing Ops &amp; Analytics</div>
+        <div class="section-label">Marketing Operations &amp; Analytics</div>
         <div class="projects">
             <div class="card static feature">
                 <span class="tag">Case Study</span>
-                <h3>Los Bravos GTM &amp; Lead System</h3>
-                <p>Full go-to-market operating stack, built solo for a cross-border industrial real estate developer with no existing systems. A 6,218-record prospect database (124% of target), custom CRM-style dashboard, ICP filtering and account-based prospecting, 59 account-intelligence packets with expansion signals and outreach angles, AI-assisted enrichment and search (NLP via Groq), automated weekly GA4 reporting, and a documented handoff. Hit 104% of contracted targets.</p>
+                <h3>Los Bravos | Lead Intelligence System</h3>
+                <p>A go-to-market operating system, built solo for a cross-border industrial real estate developer with no existing systems: a 6,218-record prospect database (124% of target), a custom CRM-style dashboard, ICP filtering and account-based prospecting, 59 account-intelligence packets with expansion signals and outreach angles, AI-assisted enrichment and search (NLP via Groq), and automated weekly GA4 reporting, all handed off with documentation. Delivered 104% of contracted targets.</p>
+                <p class="card-note">Client prospect data is confidential and never published. The linked packet is a sanitized sample built on a fictional company with synthetic data, to show the format and methodology.</p>
+                <a href="los-bravos-sample-packet.html" class="card-link">View sample lead intelligence packet →</a>
                 <span class="stack">CRM-style systems · ICP / account-based prospecting · AI workflows · GA4</span>
             </div>
             <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
@@ -369,29 +391,11 @@
                 <p>Upload multi-variant campaign data, compare metrics across variants, and surface what actually moved performance. Built to replace ad-hoc spreadsheet comparisons.</p>
                 <span class="stack">JavaScript, Charting</span>
             </a>
-            <a href="https://sbc1-code.github.io/campaign-intelligence/" target="_blank" rel="noopener noreferrer" class="card">
-                <span class="tag">Live</span>
-                <h3>Campaign Intelligence</h3>
-                <p>Martech dashboard with multi-channel performance tracking, competitive analysis, and AI-assisted message optimization.</p>
-                <span class="stack">JavaScript, HTML/CSS</span>
-            </a>
             <a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card">
                 <span class="tag">Live</span>
                 <h3>Brand Monitor</h3>
                 <p>Configurable public-source mention monitor. Scans feeds and search surfaces, filters false matches, dedupes URLs, scores signal, and publishes a daily action report. No manual intervention.</p>
                 <span class="stack">Python, APIs, CI/CD</span>
-            </a>
-            <a href="https://sbc1-code.github.io/price-configurator/" target="_blank" rel="noopener noreferrer" class="card">
-                <span class="tag">Live</span>
-                <h3>Price Configurator</h3>
-                <p>Interactive product pricing tool with rule-based validation, real-time cost calculation, and quote generation. Built to replace manual quoting workflows.</p>
-                <span class="stack">JavaScript, HTML/CSS</span>
-            </a>
-            <a href="https://sbc1-code.github.io/cpq-solution-intel/" target="_blank" rel="noopener noreferrer" class="card">
-                <span class="tag">Live</span>
-                <h3>CPQ Solution Intel</h3>
-                <p>Configure-Price-Quote solution intelligence dashboard for manufacturing PMM. Competitive landscape, feature comparison, and market positioning.</p>
-                <span class="stack">JavaScript, HTML/CSS</span>
             </a>
         </div>
     </div>
@@ -403,41 +407,13 @@
                 <h3>GA4 Analytics Report</h3>
                 <p>Styled HTML reports with period-over-period comparisons and device breakdowns.</p>
             </a>
-            <a href="https://sbc1-code.github.io/sbb-dash/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Demand Forecaster</h3>
-                <p>7-day staffing and prep guidance from live weather, weekday patterns, and event signals.</p>
+            <a href="https://sbc1-code.github.io/campaign-intelligence/" target="_blank" rel="noopener noreferrer" class="card compact">
+                <h3>Campaign Intelligence</h3>
+                <p>Martech dashboard: multi-channel performance, competitive view, and AI-assisted message optimization.</p>
             </a>
-            <a href="https://sbc1-code.github.io/deal-stress-tester/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Deal Stress Tester</h3>
-                <p>Stress-test a real estate deal across rate, vacancy, rent, and expense scenarios.</p>
-            </a>
-            <a href="https://sbc1-code.github.io/compound-growth-visualizer/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Compound Growth Visualizer</h3>
-                <p>Model contributions, growth, distributions, reinvestment, and year-by-year projections.</p>
-            </a>
-            <a href="https://sbc1-code.github.io/healthequity-demo/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>HSA Growth Engine</h3>
-                <p>HSA contribution planning, tax savings, and compound growth across Save/Spend/Invest.</p>
-            </a>
-            <a href="https://sbc1-code.github.io/invoice-generator/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Invoice Generator</h3>
-                <p>Professional invoices with EN/ES toggle, totals, and print-ready styling.</p>
-            </a>
-            <a href="https://sbc1-code.github.io/investor-pitch-generator/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Investor Pitch Deck</h3>
-                <p>Automated 13-slide institutional pitch deck with configurable branding.</p>
-            </a>
-            <a href="https://healthcare-access-gap-jbn83kds39tgjjsxgdmeg4.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Healthcare Access Gap</h3>
-                <p>Scores 3,143 US counties on health need vs. care infrastructure. HRSA, CDC, Census data.</p>
-            </a>
-            <a href="https://financial-health-index-6padrkm7fwnrtfrgrczqtr.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>Financial Health Index</h3>
-                <p>Maps banking deserts and financial exclusion across 3,219 US counties. FDIC, CFPB, Census.</p>
-            </a>
-            <a href="https://verdeazul-rrjjajrduxnjm7kh63a7vu.streamlit.app/" target="_blank" rel="noopener noreferrer" class="card compact">
-                <h3>VerdeAzul</h3>
-                <p>Community longevity index across 2,820 US counties. CDC, Census, and EPA data.</p>
+            <a href="https://sbc1-code.github.io/price-configurator/" target="_blank" rel="noopener noreferrer" class="card compact">
+                <h3>Price Configurator</h3>
+                <p>Rule-based product configurator with real-time cost calculation and quote generation.</p>
             </a>
             <a href="https://sbc1-code.github.io/ensayos-clinicos/" target="_blank" rel="noopener noreferrer" class="card compact">
                 <h3>Ensayos Clínicos</h3>
@@ -449,14 +425,15 @@
     <div class="section">
         <div class="section-label">Working with</div>
         <div class="skills">
-            <span class="skill">GA4 / GTM / Looker Studio</span>
+            <span class="skill">GA4 / Google Tag Manager / Looker Studio</span>
+            <span class="skill">Technical SEO</span>
+            <span class="skill">Tracking architecture &amp; events</span>
             <span class="skill">Python / SQL / DuckDB</span>
-            <span class="skill">Marketing &amp; GTM systems</span>
+            <span class="skill">AI / LLM automation</span>
+            <span class="skill">Automated reporting / CI/CD</span>
+            <span class="skill">Marketing operations</span>
             <span class="skill">Account-based prospecting / ICP</span>
-            <span class="skill">CRM-style workflows</span>
-            <span class="skill">AI / LLM workflows</span>
-            <span class="skill">REST APIs / CI/CD</span>
-            <span class="skill">Streamlit / React</span>
+            <span class="skill">HubSpot (certified)</span>
             <span class="skill">English / Spanish</span>
         </div>
     </div>
@@ -467,10 +444,10 @@
             <div class="bg-item">
                 <div class="role">Digital Content Specialist</div>
                 <div class="org">SeeScan · Marketing &amp; Communications Analytics/Operations · 6 years</div>
-                <div class="detail">Primary owner of analytics and marketing operations across three brand properties, 250K+ annual sessions at 92% organic. Led the UA to GA4 migration end-to-end. Built GTM tag architecture with custom events and conversion tracking. Automated reporting and brand-monitoring pipelines. Contributed to seescan.com and deepsea.com rebuilds alongside UX/UI.</div>
+                <div class="detail">Primary owner of analytics and web operations across three brand sites, 250K+ annual sessions at 92% organic. Led the UA to GA4 migration end to end, built the Google Tag Manager architecture with custom events and conversion tracking, and own technical SEO plus automated reporting and monitoring pipelines. Contributed to two brand-site rebuilds alongside UX/UI.</div>
             </div>
             <div class="bg-item">
-                <div class="role">GTM Operations Consultant (Contract)</div>
+                <div class="role">GTM Systems &amp; Lead Generation (Contract)</div>
                 <div class="org">Los Bravos · Cross-border industrial real estate · 2025–2026</div>
                 <div class="detail">Built the full GTM operating stack solo: 6,218-record prospect database, CRM-style dashboard, 59 account-intelligence packets, AI-assisted search, and automated GA4 reporting. Ran an account-based prospecting motion to 1,121 qualified leads and grew the company LinkedIn page to 615+ at 6.2% engagement (2x industry average). Delivered 104% of contracted scope.</div>
             </div>
