@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: A Real Estate Partnership, Reconstructed | Sebastian Becerra</title>
+    <meta name="description" content="A four-unit rental, a full buy-renovate-refinance-sell cycle from 2021 to 2026, and a forensic reconstruction of where the money actually went. Finance case study by Sebastian Becerra.">
+    <meta property="og:title" content="Case Study: A Real Estate Partnership, Reconstructed">
+    <meta property="og:description" content="The property tripled in value. The partners roughly broke even. Reconstructing four and a half years of capital history from primary documents explains why.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sbc1-code.github.io/portfolio/roca-case-study.html">
+    <link rel="canonical" href="https://sbc1-code.github.io/portfolio/roca-case-study.html">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0b0b0b;
+            --surface: #141414;
+            --border: #222;
+            --text: #e8e8e8;
+            --text-secondary: #888;
+            --accent: #8a9a7b;
+            --accent-dim: rgba(138, 154, 123, 0.15);
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f3f0;
+            --surface: #ffffff;
+            --border: #d5d3cf;
+            --text: #1a1a1a;
+            --text-secondary: #6b6b6b;
+            --accent: #5c6b50;
+            --accent-dim: rgba(92, 107, 80, 0.1);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        a { color: inherit; }
+
+        nav {
+            padding: 24px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-left: 2px;
+            vertical-align: middle;
+        }
+
+        .theme-toggle {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            padding: 5px 12px;
+            font-size: 0.78em;
+            cursor: pointer;
+            font-family: inherit;
+            transition: background 0.15s, border-color 0.15s, color 0.15s;
+        }
+
+        .theme-toggle:hover { border-color: var(--accent); color: var(--text); }
+        .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        .article {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 56px 32px 72px;
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 0.82em;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .back-link:hover { color: var(--text); border-color: var(--text); }
+        .back-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        .kicker {
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 14px;
+        }
+
+        h1 {
+            font-size: 1.9em;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            line-height: 1.25;
+            margin-bottom: 18px;
+        }
+
+        .lede {
+            font-size: 1.02em;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .meta-line {
+            font-size: 0.78em;
+            color: var(--text-secondary);
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            font-size: 0.72em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+            margin: 44px 0 16px;
+        }
+
+        .article p {
+            font-size: 0.94em;
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .article ul {
+            margin: 0 0 16px 20px;
+        }
+
+        .article li {
+            font-size: 0.94em;
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .callout {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            border-radius: 8px;
+            padding: 18px 22px;
+            margin: 24px 0;
+        }
+
+        .callout p {
+            font-size: 0.9em;
+            margin-bottom: 0;
+            color: var(--text);
+        }
+
+        .tool-card {
+            background: var(--surface);
+            border: 1px solid var(--accent);
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .tool-card .tag {
+            display: inline-block;
+            font-size: 0.65em;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 100px;
+            padding: 2px 10px;
+            margin-bottom: 10px;
+        }
+
+        .tool-card h3 { font-size: 1em; font-weight: 600; margin-bottom: 8px; }
+
+        .tool-card p { font-size: 0.85em; color: var(--text-secondary); margin-bottom: 12px; }
+
+        .tool-card a {
+            font-size: 0.85em;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 1px;
+        }
+
+        .tool-card a:hover { color: var(--text); border-color: var(--text); }
+        .tool-card a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        footer {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 40px 32px;
+            border-top: 1px solid var(--border);
+            font-size: 0.78em;
+            color: var(--text-secondary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: border-color 0.2s;
+        }
+
+        footer a { color: var(--text-secondary); text-decoration: none; }
+        footer a:hover { color: var(--text); }
+        footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        @media (max-width: 600px) {
+            .article { padding: 40px 20px 56px; }
+            h1 { font-size: 1.5em; }
+            nav { padding: 20px; }
+            footer { padding: 32px 20px; flex-direction: column; gap: 8px; }
+        }
+    </style>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-brand">SB<span class="dot"></span></a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">Light</button>
+    </nav>
+
+    <main>
+    <article class="article">
+        <a href="index.html" class="back-link">← Back to portfolio</a>
+
+        <div class="kicker">Finance Case Study</div>
+        <h1>The property tripled in value. The partners roughly broke even. Here is why.</h1>
+        <p class="lede">I co-founded a three-person LLC that bought a four-unit rental property in Texas and ran the full cycle: buy, renovate, refinance, rent, sell. When it ended, nobody could say what each partner had actually made. So I reconstructed the entire capital history from primary documents and calculated it.</p>
+        <div class="meta-line">2021 to 2026 · Four and a half years · Written from bank records, loan servicer ledgers, closing statements, and tax filings</div>
+
+        <div class="section-label">The Problem</div>
+        <p>On paper the deal worked. The property appraised at roughly triple our purchase price and sold at a 200%+ gain over the 2021 to 2026 hold.</p>
+        <p>But when we dissolved the partnership, none of us could answer the basic question: what did each partner actually make? Money had moved through five institutions. A personal account had doubled as the operating conduit. The renovation had finished 72% over our own signed contract, despite being fully funded with a cushion. The flattering answer floating around was a small profit. Nobody could prove it.</p>
+
+        <div class="section-label">What I Built</div>
+        <p>I reconstructed the complete capital history from primary documents: bank exports, dozens of statements, closing records, loan servicer ledgers, tax filings, property manager reports, even a group-chat agreement between partners.</p>
+        <p>The method mattered more than the volume:</p>
+        <ul>
+            <li>Every figure tiered as confirmed, likely, or unresolved. No estimates presented as facts.</li>
+            <li>Wire reversals netted instead of counted, which alone removed six figures of phantom activity.</li>
+            <li>Lender renovation draws separated from partner capital. A run of deposits matched the loan holdback to the dollar and were nearly misread as contributions.</li>
+            <li>Pass-throughs identified by pairing same-day inflows and outflows. One five-figure "distribution" turned out to be contractor money wired back out the same afternoon.</li>
+            <li>A settlement ledger where every line cited its source document, so any partner could verify any number.</li>
+        </ul>
+        <p>Then I audited the ledger against the sources a second time, treating my own earlier conclusions as claims to be tested. That pass corrected three of my own figures, confirmed the rest, and caught a hardcoded plug buried inside the renovation budget that every downstream number had inherited. One full year, rebuilt from monthly statements, reconciled to the closing balance to the penny.</p>
+
+        <div class="section-label">The Result</div>
+        <p>The evidence overturned the accepted story. The deal was roughly break-even for me personally, not profitable. I would rather own that number than a flattering guess.</p>
+        <p>The asset was never the problem. The renovation created real value and the property sold near its peak appraisal. The capital structure consumed it:</p>
+        <ul>
+            <li>The cash-out refinance closed with a debt service coverage ratio of 0.92. Below 1.0 means the building cannot pay its own mortgage. Not in a bad month. Structurally, every month. That was computable from the term sheet before signing.</li>
+            <li>The loan was interest-only. More than two years of payments reduced the principal by nothing. The balance at payoff was higher than the amount borrowed.</li>
+            <li>Most of the "cash out" repaid earlier loans rather than returning profit. It felt like a win and masked the real position.</li>
+            <li>The decisive error was the exit that did not happen. At the refinance, the property sat at its peak appraised value with meaningful equity. Selling then would have returned substantially more than refinancing and holding did. The difference came to five figures per partner.</li>
+        </ul>
+        <p>The original pro forma showed why all of this was knowable in advance. It modeled debt service on the loan we were replacing and property management at zero. It projected a comfortable annual profit. Reality was negative from the month the new loan funded.</p>
+        <p>All three partner accounts settled to the dollar. The entity dissolved with no disputes.</p>
+
+        <div class="callout">
+            <p>The lasting output is a decision rule: run the debt service math before the leverage decision, not after. Every failure in this deal was arithmetic that could have been done in advance. None of it required expertise that was out of reach. It required running four numbers before signing.</p>
+        </div>
+
+        <div class="tool-card">
+            <span class="tag">The Tool It Produced</span>
+            <h3>BRRRR Deal Stress-Tester</h3>
+            <p>A public calculator that leads with where a deal breaks, not the best case: full-cycle modeling, stress heatmaps, and plain-English verdicts under every metric. I built it because no calculator showed me where this deal would break before closing.</p>
+            <a href="https://sbc1-code.github.io/deal-stress-tester/" target="_blank" rel="noopener noreferrer">Try the stress-tester →</a>
+        </div>
+    </article>
+    </main>
+
+    <footer>
+        <span>2026 Sebastian Becerra</span>
+        <a href="mailto:sebastianmbecerra5@gmail.com">Contact</a>
+    </footer>
+
+    <script>
+        function setTheme(mode) {
+            const html = document.documentElement;
+            const btn = document.getElementById('theme-toggle');
+            if (mode === 'light') {
+                html.setAttribute('data-theme', 'light');
+                btn.textContent = 'Dark';
+            } else {
+                html.removeAttribute('data-theme');
+                btn.textContent = 'Light';
+            }
+            localStorage.setItem('portfolio_theme', mode);
+        }
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            var current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+            setTheme(current === 'light' ? 'dark' : 'light');
+        });
+        (function() {
+            var stored = localStorage.getItem('portfolio_theme');
+            if (stored) { setTheme(stored); }
+            else if (window.matchMedia('(prefers-color-scheme: light)').matches) { setTheme('light'); }
+        })();
+    </script>
+</body>
+</html>
