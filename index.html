@@ -53,6 +53,8 @@
             --accent-dim: rgba(92, 107, 80, 0.1);
         }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
             background: var(--bg);
@@ -64,8 +66,26 @@
 
         a { color: inherit; }
 
+        .skip-link {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 100;
+            padding: 10px 14px;
+            border-radius: 6px;
+            background: var(--text);
+            color: var(--bg);
+            text-decoration: none;
+            transform: translateY(-160%);
+            transition: transform 0.15s;
+        }
+
+        .skip-link:focus { transform: translateY(0); }
+
         /* Nav */
         nav {
+            max-width: 1080px;
+            margin: 0 auto;
             padding: 24px 32px;
             display: flex;
             justify-content: space-between;
@@ -78,6 +98,7 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             color: var(--text);
+            text-decoration: none;
         }
 
         .dot {
@@ -89,6 +110,22 @@
             margin-left: 2px;
             vertical-align: middle;
         }
+
+        .nav-actions,
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 0.78em;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover { color: var(--text); }
+        .nav-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
         .theme-toggle {
             background: var(--surface);
@@ -107,17 +144,33 @@
 
         /* Hero */
         .hero {
-            max-width: 720px;
+            max-width: 1080px;
             margin: 0 auto;
-            padding: 100px 32px 72px;
+            padding: 72px 32px 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.65fr);
+            gap: 56px;
+            align-items: end;
+        }
+
+        .eyebrow {
+            margin-bottom: 14px;
+            color: var(--accent);
+            font-size: 0.74em;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
         }
 
         .hero h1 {
-            font-size: 2.4em;
+            font-size: clamp(2.35em, 5vw, 4.2em);
             font-weight: 600;
             letter-spacing: -0.5px;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .hero h1 .dot {
@@ -134,51 +187,74 @@
             letter-spacing: 0.2px;
         }
 
-        .hero p {
+        .hero-copy {
             font-size: 1.05em;
             color: var(--text-secondary);
-            max-width: 560px;
+            max-width: 650px;
             line-height: 1.7;
         }
 
-        .hero .hero-method {
-            margin-top: 18px;
-            font-size: 0.86em;
-            color: var(--text);
-            letter-spacing: 0.1px;
-        }
-
-        .hero .meta {
-            margin-top: 24px;
-            font-size: 0.82em;
-            color: var(--text-secondary);
+        .hero-actions {
+            margin-top: 28px;
             display: flex;
-            gap: 20px;
+            gap: 10px;
             flex-wrap: wrap;
+        }
+
+        .button {
+            min-height: 42px;
+            display: inline-flex;
             align-items: center;
-        }
-
-        .hero .meta a {
-            color: var(--text-secondary);
+            justify-content: center;
+            padding: 9px 16px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: var(--surface);
+            color: var(--text);
             text-decoration: none;
-            border-bottom: 1px solid var(--border);
-            transition: color 0.2s, border-color 0.2s;
+            font-size: 0.82em;
+            font-weight: 650;
+            transition: border-color 0.15s, background 0.15s, color 0.15s;
         }
 
-        .hero .meta a:hover { color: var(--text); border-color: var(--text); }
-        .hero .meta a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .button.primary { background: var(--accent); border-color: var(--accent); color: #0b0b0b; }
+        .button:hover { border-color: var(--accent); }
+        .button.primary:hover { background: var(--text); border-color: var(--text); }
+        .button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-        .hero .open-to {
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            border-radius: 100px;
-            padding: 3px 12px;
-            font-weight: 500;
+        .proof-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .proof-item {
+            min-height: 110px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 17px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: var(--surface);
+        }
+
+        .proof-number {
+            color: var(--text);
+            font-size: 1.65em;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .proof-label {
+            color: var(--text-secondary);
+            font-size: 0.72em;
+            line-height: 1.35;
         }
 
         /* Sections */
         .section {
-            max-width: 720px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 0 32px 64px;
         }
@@ -219,6 +295,38 @@
         .card.static { cursor: default; }
         .card.feature { grid-column: 1 / -1; border-color: var(--accent); }
 
+        .card.feature-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(240px, 0.75fr);
+            gap: 30px;
+        }
+
+        .card-copy { display: flex; flex-direction: column; gap: 10px; }
+
+        .card-proof {
+            padding-left: 24px;
+            border-left: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .proof-line {
+            color: var(--text-secondary);
+            font-size: 0.78em;
+            line-height: 1.45;
+        }
+
+        .proof-line strong {
+            display: block;
+            color: var(--text);
+            font-size: 1.25em;
+            line-height: 1.2;
+        }
+
+        .link-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 3px; }
+
         .card .tag {
             display: inline-block;
             font-size: 0.65em;
@@ -248,6 +356,22 @@
             color: var(--text-secondary);
             margin-top: auto;
             padding-top: 4px;
+        }
+
+        .card .stack-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: auto;
+            padding-top: 5px;
+        }
+
+        .stack-list span {
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: var(--accent-dim);
+            color: var(--text-secondary);
+            font-size: 0.68em;
         }
 
         .card .card-note {
@@ -327,7 +451,7 @@
 
         /* Footer */
         footer {
-            max-width: 720px;
+            max-width: 1080px;
             margin: 0 auto;
             padding: 40px 32px;
             border-top: 1px solid var(--border);
@@ -348,154 +472,168 @@
             overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
         }
 
+        @media (max-width: 850px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+        }
+
         @media (max-width: 600px) {
-            .hero { padding: 72px 20px 56px; }
-            .hero h1 { font-size: 1.8em; }
+            .hero { padding: 38px 20px 56px; }
+            .hero-grid { grid-template-columns: 1fr; gap: 28px; }
+            .hero h1 { font-size: 2.35em; }
+            .hero-tagline { font-size: 0.82em; }
+            .hero-copy { font-size: 0.95em; }
+            .hero-actions .button { flex: 1 1 auto; }
+            .proof-item { min-height: 94px; padding: 14px; }
+            .proof-number { font-size: 1.4em; }
             .section { padding: 0 20px 48px; }
             .projects { grid-template-columns: 1fr; }
             .projects.tools { grid-template-columns: 1fr; }
             .projects.secondary { grid-template-columns: 1fr 1fr; }
+            .card.feature-grid { display: flex; }
+            .card-proof { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border); }
             .background-grid { grid-template-columns: 1fr; }
             footer { padding: 32px 20px; flex-direction: column; gap: 8px; }
             nav { padding: 20px; }
+            .nav-links { display: none; }
         }
     </style>
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 </head>
-<body>
-    <nav>
-        <span class="nav-brand">SB<span class="dot"></span></span>
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">Light</button>
+<body id="top">
+    <a class="skip-link" href="#main-content">Skip to selected work</a>
+    <nav aria-label="Primary navigation">
+        <a class="nav-brand" href="#top" aria-label="Sebastian Becerra home">SB<span class="dot"></span></a>
+        <div class="nav-actions">
+            <div class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#experience">Experience</a>
+                <a href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="mailto:sebastianmbecerra5@gmail.com">Contact</a>
+            </div>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle light and dark mode">Light</button>
+        </div>
     </nav>
 
-    <main>
-    <div class="hero">
-        <h1>Sebastian Becerra<span class="dot"></span></h1>
-        <p class="hero-tagline">Digital Content &amp; Web Operations | Analytics · CMS · Automation · Measurement | Bilingual EN/ES</p>
-        <p>I build the operating layer behind commercial websites: customer paths, CMS workflows, requirements, measurement, reporting, and release delivery. At SeeScan, I own digital operations across three B2B properties. For Los Bravos, I designed and delivered lead-intelligence infrastructure from the ground up. This is a focused record of the systems, decisions, and working proof behind that work.</p>
-        <p class="hero-method">Customer path · Discovery · Requirements · CMS · Automation · Measurement · Handoff</p>
-        <div class="meta">
-            <span>Santa Barbara / San Diego, CA</span>
-            <span class="open-to">Open to Digital Experience, Web Operations, Marketing Operations &amp; Implementation · Remote</span>
-            <a href="https://linkedin.com/in/sbecerra1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="mailto:sebastianmbecerra5@gmail.com">Email</a>
+    <main id="main-content">
+    <header class="hero">
+        <div class="hero-grid">
+            <div>
+                <p class="eyebrow">Santa Barbara, California · Remote US</p>
+                <h1>Sebastian Becerra<span class="dot"></span></h1>
+                <p class="hero-tagline">Digital Content &amp; Web Operations | Analytics · CMS · Automation · Measurement | Bilingual EN/ES</p>
+                <p class="hero-copy">I operate and improve commercial websites from requirements through release: responsive front-end work, WordPress delivery, measurement, technical SEO, QA, and the workflows that keep teams shipping.</p>
+                <div class="hero-actions" aria-label="Primary actions">
+                    <a class="button primary" href="#work">View selected work</a>
+                    <a class="button" href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    <a class="button" href="mailto:sebastianmbecerra5@gmail.com">Contact</a>
+                </div>
+            </div>
+            <div class="proof-grid" aria-label="Experience at a glance">
+                <div class="proof-item"><span class="proof-number">7+ years</span><span class="proof-label">Relevant digital and web experience</span></div>
+                <div class="proof-item"><span class="proof-number">3</span><span class="proof-label">B2B websites in the SeeScan estate</span></div>
+                <div class="proof-item"><span class="proof-number">~239K</span><span class="proof-label">Trailing-12-month sessions</span></div>
+                <div class="proof-item"><span class="proof-number">40+</span><span class="proof-label">Named release cycles coordinated</span></div>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="section">
-        <div class="section-label">Selected operating work</div>
+    <section class="section" id="work" aria-labelledby="work-heading">
+        <h2 class="section-label" id="work-heading">Selected web and operating work</h2>
         <div class="projects">
-            <div class="card static feature">
-                <span class="tag">Case Study</span>
-                <h3>Los Bravos | Lead Intelligence System</h3>
-                <p>Built and handed off the first GTM operating system for a cross-border industrial real-estate developer: a 6,218-record prospect database, CRM-style dashboard, a 1,121-lead target segment, 59 account-intelligence packets, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
-                <p class="card-note">Client prospect data is confidential and never published. The linked packet is a sanitized sample built on a fictional company with synthetic data, to show the format and methodology.</p>
-                <a href="los-bravos-sample-packet.html" class="card-link">View sample lead intelligence packet →</a>
-                <span class="stack">CRM-style systems · ICP / account-based prospecting · AI workflows · GA4</span>
-            </div>
-            <div class="card static">
-                <span class="tag">Operating system</span>
-                <h3>SeeScan | B2B Digital Estate</h3>
-                <p>Own the digital operating layer across exactly three B2B properties supporting discovery, evaluation, handoff, and post-sale self-service. Built the cross-property measurement and reporting layer, coordinate 40+ named software-release cycles, and maintain repeatable intake, QA, reporting, and handoff systems across the business.</p>
-                <span class="stack">CMS · Web operations · GA4 / GTM · Release coordination</span>
-            </div>
-        </div>
-    </div>
+            <article class="card static feature feature-grid">
+                <div class="card-copy">
+                    <span class="tag">Web ownership</span>
+                    <h3>SeeScan | Multi-site WordPress delivery</h3>
+                    <p>Own day-to-day digital operations across exactly three B2B properties, from intake and responsive implementation through DEV, staging, production promotion, and verified handoff. The work includes WordPress theme and plugin governance, responsive defect fixes, security triage, technical SEO, analytics tagging, and cross-functional release coordination.</p>
+                    <div class="link-row"><a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer" class="card-link">View live corporate site →</a></div>
+                    <div class="stack-list" aria-label="SeeScan capabilities"><span>WordPress</span><span>WP Engine</span><span>HTML / CSS / JavaScript</span><span>Responsive QA</span><span>GA4 / GTM</span><span>Technical SEO</span><span>GitLab</span></div>
+                </div>
+                <div class="card-proof" aria-label="SeeScan scope">
+                    <div class="proof-line"><strong>3 sites</strong>One governed B2B web estate</div>
+                    <div class="proof-line"><strong>~239K sessions</strong>Trailing 12 months</div>
+                    <div class="proof-line"><strong>40+ releases</strong>Named cycles across teams</div>
+                </div>
+            </article>
 
-    <div class="section">
-        <div class="section-label">Selected independent systems</div>
-        <p class="section-intro">Selected examples of how I translate a commercial problem into a usable workflow or decision-support layer.</p>
-        <div class="projects tools">
-            <div class="card static tool">
-                <span class="tag">Campaign operations</span>
-                <h3>Measurement controls</h3>
-                <p>Designed campaign-naming and metadata workflows that make tracking, search presentation, and handoff more consistent.</p>
-                <a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
-                <span class="stack">UTM governance · Technical SEO · Content operations</span>
-            </div>
-            <div class="card static tool">
-                <span class="tag">Qualification design</span>
-                <h3>Lead scoring logic</h3>
-                <p>Built a transparent way to weight qualification signals, set thresholds, and make prioritization visible to an operator.</p>
-                <a href="https://digito.technology/tools/lead-scoring" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
-                <span class="stack">Pipeline design · Qualification · GTM systems</span>
-            </div>
-            <div class="card static tool">
-                <span class="tag">Reporting workflow</span>
-                <h3>Performance analysis and alerts</h3>
-                <p>Created reusable reporting and anomaly-detection patterns that turn multi-site activity into an actionable operating view.</p>
-                <a href="https://sbc1-code.github.io/analytics-hq/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
-                <span class="stack">GA4 API · Reporting automation · CI/CD</span>
-            </div>
-            <div class="card static tool">
-                <span class="tag">Signal monitoring</span>
-                <h3>Brand intelligence loop</h3>
-                <p>Built a public-source monitor that filters noise, scores relevance, and publishes a useful reporting layer.</p>
-                <a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
-                <span class="stack">Monitoring · Signal scoring · Reporting</span>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section-label">Independent product and decision proof</div>
-        <div class="projects">
-            <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
-                <span class="tag">Shipped product</span>
+            <article class="card static">
+                <span class="tag">Responsive product</span>
                 <h3>BorderPulse</h3>
-                <p>Public cross-border data product for real-time US-Mexico wait times and peso exchange-rate context. Built with 44 per-crossing search pages, scheduled data refresh, PWA support, and privacy-first analytics.</p>
-                <span class="stack">Vite · React · Tailwind · GitHub Actions</span>
-            </a>
-            <div class="card static feature">
-                <span class="tag">Case Study</span>
-                <h3>A Real Estate Partnership, Reconstructed | BRRRR Deal Stress-Tester</h3>
-                <p>I co-ran a four-unit rental through the full cycle from 2021 to 2026: buy, renovate, refinance, rent, sell. I reconstructed the capital history from bank records, servicer ledgers, and closing statements to prove why the partners roughly broke even, then built the calculator that would have caught the problem before closing.</p>
-                <a href="roca-case-study.html" class="card-link">Read the case study →</a>
-                <a href="https://sbc1-code.github.io/deal-stress-tester/" target="_blank" rel="noopener noreferrer" class="card-link">Open the decision tool →</a>
-                <span class="stack">Forensic capital reconstruction · DSCR / IRR analysis · JavaScript</span>
-            </div>
-        </div>
-    </div>
+                <p>Built and shipped a public cross-border data product with real-time US-Mexico wait times, 44 per-crossing search pages, scheduled data refresh, PWA support, and privacy-first analytics. The interface is designed for quick decisions on mobile.</p>
+                <div class="link-row">
+                    <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card-link">View live site →</a>
+                    <a href="https://github.com/sbc1-code/borderpulse" target="_blank" rel="noopener noreferrer" class="card-link">View repository →</a>
+                </div>
+                <div class="stack-list"><span>React</span><span>Vite</span><span>Tailwind</span><span>Responsive UI</span><span>Accessibility QA</span><span>GitHub Actions</span></div>
+            </article>
 
-    <div class="section">
-        <div class="section-label">Working with</div>
+            <article class="card static">
+                <span class="tag">Tool bench</span>
+                <h3>DIGITO | Commercial workflow tools</h3>
+                <p>Shipped practical tools for campaign governance, metadata, qualification, measurement, and decision support. The current interface uses modern JavaScript, React, Tailwind, and automated deployment.</p>
+                <div class="link-row">
+                    <a href="https://digito.technology" target="_blank" rel="noopener noreferrer" class="card-link">View live site →</a>
+                    <a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">Open a tool →</a>
+                </div>
+                <div class="stack-list"><span>React</span><span>Tailwind</span><span>TypeScript</span><span>Measurement</span><span>AI-assisted workflows</span><span>CI/CD</span></div>
+            </article>
+
+            <article class="card static feature">
+                <span class="tag">Commercial system</span>
+                <h3>Los Bravos | Lead intelligence and reporting</h3>
+                <p>Built and handed off a cross-border industrial real-estate lead-intelligence system: a 6,218-record prospect database, CRM-style dashboard, 1,121-lead target segment, 59 account-intelligence packets, AI-assisted search, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
+                <p class="card-note">Client prospect data is confidential. The linked packet is a sanitized sample using a fictional company and synthetic data.</p>
+                <div class="link-row"><a href="los-bravos-sample-packet.html" class="card-link">View sanitized sample packet →</a></div>
+                <div class="stack-list"><span>CRM-style systems</span><span>Python / SQL</span><span>AI-assisted research</span><span>GA4 reporting</span><span>Documented handoff</span></div>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="systems-heading">
+        <h2 class="section-label" id="systems-heading">Additional decision systems</h2>
+        <p class="section-intro">Smaller public systems that show how I turn an operating problem into a usable workflow, reporting layer, or decision tool.</p>
+        <div class="projects tools">
+            <article class="card static tool">
+                <span class="tag">Reporting</span><h3>Analytics HQ</h3>
+                <p>Multi-site GA4 reporting and anomaly alerts built for repeatable performance review.</p>
+                <div class="link-row"><a href="https://sbc1-code.github.io/analytics-hq/" target="_blank" rel="noopener noreferrer" class="card-link">Live site →</a><a href="https://github.com/sbc1-code/analytics-hq" target="_blank" rel="noopener noreferrer" class="card-link">Repository →</a></div>
+                <span class="stack">GA4 API · Reporting automation · CI/CD</span>
+            </article>
+            <article class="card static tool">
+                <span class="tag">Monitoring</span><h3>Brand Monitor</h3>
+                <p>Public-source monitoring that filters noise, scores relevance, and publishes a focused reporting layer.</p>
+                <div class="link-row"><a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card-link">Live site →</a><a href="https://github.com/sbc1-code/brand-monitor" target="_blank" rel="noopener noreferrer" class="card-link">Repository →</a></div>
+                <span class="stack">Signal scoring · Automation · GitHub Actions</span>
+            </article>
+            <article class="card static tool">
+                <span class="tag">Decision support</span><h3>BRRRR Deal Stress-Tester</h3>
+                <p>Public underwriting tool built from the forensic reconstruction of a real four-unit investment.</p>
+                <div class="link-row"><a href="roca-case-study.html" class="card-link">Case study →</a><a href="https://sbc1-code.github.io/deal-stress-tester/" target="_blank" rel="noopener noreferrer" class="card-link">Live tool →</a></div>
+                <span class="stack">JavaScript · DSCR / IRR · Scenario design</span>
+            </article>
+            <article class="card static tool">
+                <span class="tag">Campaign operations</span><h3>Measurement controls</h3>
+                <p>Campaign naming and metadata workflows that keep tracking, search presentation, and handoff consistent.</p>
+                <div class="link-row"><a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">Open tool →</a></div>
+                <span class="stack">UTM governance · Metadata · Content operations</span>
+            </article>
+        </div>
+    </section>
+
+    <section class="section" aria-labelledby="skills-heading">
+        <h2 class="section-label" id="skills-heading">Working with</h2>
         <div class="skills">
-            <span class="skill">GA4 / Google Tag Manager / Looker Studio</span>
-            <span class="skill">Web Operations</span>
-            <span class="skill">CMS / WordPress</span>
-            <span class="skill">Technical SEO</span>
-            <span class="skill">Measurement plans / KPI &amp; event taxonomy</span>
-            <span class="skill">Python / SQL / DuckDB</span>
-            <span class="skill">AI / LLM automation</span>
-            <span class="skill">Automated reporting / CI/CD</span>
-            <span class="skill">Business analysis / process improvement</span>
-            <span class="skill">Account-based prospecting / ICP</span>
-            <span class="skill">HubSpot (certified)</span>
-            <span class="skill">English / Spanish</span>
+            <span class="skill">HTML / CSS / JavaScript</span><span class="skill">React / Vite / Tailwind</span><span class="skill">CMS / WordPress</span><span class="skill">WP Engine delivery</span><span class="skill">Responsive QA</span><span class="skill">Accessibility-minded implementation</span><span class="skill">GA4 / Google Tag Manager</span><span class="skill">Technical SEO</span><span class="skill">GitHub / GitLab</span><span class="skill">Automated reporting / CI/CD</span><span class="skill">AI-assisted workflows</span><span class="skill">Python / SQL / APIs</span><span class="skill">English / Spanish</span>
         </div>
-    </div>
+    </section>
 
-    <div class="section">
-        <div class="section-label">Experience</div>
+    <section class="section" id="experience" aria-labelledby="experience-heading">
+        <h2 class="section-label" id="experience-heading">Experience</h2>
         <div class="background-grid">
-            <div class="bg-item">
-                <div class="role">Digital Content Specialist (MarCom Operations &amp; Analytics)</div>
-                <div class="org">SeeScan · Marketing &amp; Communications Analytics/Operations · Nov 2019 to present</div>
-                <div class="detail">Own digital operations and analytics across three B2B brand properties representing approximately 239K trailing-12-month sessions with effectively no paid media. The digital estate supports customer discovery, product evaluation, channel handoff, and post-sale self-service. Built the cross-property measurement and reporting layer, coordinate more than 40 named software-release cycles across the three properties, and created repeatable intake, implementation, QA, reporting, and handoff systems across marketing, product, engineering, sales, support, and DevOps.</div>
-            </div>
-            <div class="bg-item">
-                <div class="role">GTM Operations &amp; Analytics Consultant (Contract)</div>
-                <div class="org">Los Bravos · Cross-border industrial real estate · Aug 2025 to Mar 2026</div>
-                <div class="detail">Built the engagement's GTM data and lead-intelligence infrastructure: a 6,218-record prospect database, CRM-style dashboard, 59 account-intelligence packets, AI-assisted search, and automated GA4 reporting. Built and qualified a 1,121-lead target set for account-based prospecting and grew the company LinkedIn page to 615+ at 6.2% engagement (2x industry average). Delivered 104% of contracted scope, on an engagement I proposed, priced, and closed myself.</div>
-            </div>
-            <div class="bg-item">
-                <div class="role">Co-founder, Real Estate Partnership</div>
-                <div class="org">Three-person LLC · Four-unit residential · Nov 2021 to Mar 2026</div>
-                <div class="detail">Ran the full investment cycle as a principal: acquisition, renovation, refinance, lease-up, and sale at a 200%+ valuation gain. At wind-down, reconstructed the partnership's complete capital history from primary bank records across five institutions and settled all three partner accounts to the dollar, with no disputes. The work became a <a href="roca-case-study.html">published case study</a> and a public underwriting tool. I also advise a family rental portfolio.</div>
-            </div>
+            <article class="bg-item"><div class="role">Digital Content Specialist (MarCom Operations &amp; Analytics)</div><div class="org">SeeScan · Nov 2019 to present</div><div class="detail">Own web operations and analytics across exactly three B2B sites. Translate stakeholder needs into scoped implementation, coordinate releases across marketing, product, engineering, sales, support, and DevOps, and verify work through QA, measurement, and documented handoff.</div></article>
+            <article class="bg-item"><div class="role">GTM Operations &amp; Analytics Consultant (Contract)</div><div class="org">Los Bravos · Aug 2025 to Mar 2026</div><div class="detail">Built the engagement's lead-intelligence, reporting, and workflow infrastructure, including a custom CRM-style dashboard, AI-assisted search, automated analytics, and documented operator handoff.</div></article>
+            <article class="bg-item"><div class="role">Independent product and decision systems</div><div class="org">BorderPulse, DIGITO, reporting, and finance tools</div><div class="detail">Build and maintain public interfaces, automated data workflows, reporting tools, and decision-support products with modern front-end tooling and practical release discipline.</div></article>
         </div>
-    </div>
+    </section>
     </main>
 
     <footer>
