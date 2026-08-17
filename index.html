@@ -250,6 +250,33 @@
             padding-top: 4px;
         }
 
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 4px 0 2px;
+        }
+
+        .proof-point {
+            border-top: 1px solid var(--border);
+            padding-top: 8px;
+        }
+
+        .proof-point strong {
+            display: block;
+            font-size: 1.2em;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .proof-point span {
+            display: block;
+            margin-top: 3px;
+            font-size: 0.68em;
+            color: var(--text-secondary);
+            line-height: 1.35;
+        }
+
         .card .card-note {
             font-size: 0.76em;
             color: var(--text-secondary);
@@ -323,6 +350,9 @@
 
         .bg-item .role { font-size: 0.95em; font-weight: 600; margin-bottom: 2px; }
         .bg-item .org { font-size: 0.82em; color: var(--text-secondary); }
+        .bg-item .org a { color: inherit; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 2px; }
+        .bg-item .org a:hover { color: var(--text); }
+        .bg-item .org a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
         .bg-item .detail { font-size: 0.82em; color: var(--text-secondary); margin-top: 10px; line-height: 1.6; }
 
         /* Footer */
@@ -372,8 +402,7 @@
     <div class="hero">
         <h1>Sebastian Becerra<span class="dot"></span></h1>
         <p class="hero-tagline">Digital Content &amp; Web Operations | Analytics · CMS · Automation · Measurement | Bilingual EN/ES</p>
-        <p>I build the operating layer behind commercial websites: customer paths, CMS workflows, requirements, measurement, reporting, and release delivery. At SeeScan, I own digital operations across three B2B properties. For Los Bravos, I designed and delivered lead-intelligence infrastructure from the ground up. This is a focused record of the systems, decisions, and working proof behind that work.</p>
-        <p class="hero-method">Customer path · Discovery · Requirements · CMS · Automation · Measurement · Handoff</p>
+        <p>I run digital operations for commercial websites: CMS, measurement, requirements, QA, and release delivery. At <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan</a>, I own the operating layer across three B2B sites. For Los Bravos, I built a lead-intelligence system from the ground up. The work below is the proof.</p>
         <div class="meta">
             <span>Santa Barbara / San Diego, CA</span>
             <span class="open-to">Open to Digital Experience, Web Operations, Marketing Operations &amp; Implementation · Remote</span>
@@ -384,52 +413,58 @@
     </div>
 
     <div class="section">
-        <div class="section-label">Selected operating work</div>
+        <div class="section-label">Selected work</div>
         <div class="projects">
             <div class="card static feature">
                 <span class="tag">Operating system</span>
-                <h3>SeeScan | B2B Digital Estate</h3>
-                <p>Own the digital operating layer across exactly three B2B properties supporting discovery, evaluation, handoff, and post-sale self-service. Built the cross-property measurement and reporting layer, coordinate 40+ named software-release cycles, and maintain repeatable intake, QA, reporting, and handoff systems across the business.</p>
+                <h3>SeeScan | B2B websites</h3>
+                <p>Own the web operations layer across three B2B sites: CMS work, measurement, reporting, intake, QA, and handoff.</p>
+                <div class="proof-grid" aria-label="SeeScan proof points">
+                    <div class="proof-point"><strong>3</strong><span>B2B websites</span></div>
+                    <div class="proof-point"><strong>239K</strong><span>trailing-12-month sessions</span></div>
+                    <div class="proof-point"><strong>40+</strong><span>named release cycles</span></div>
+                </div>
+                <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer" class="card-link">SeeScan website ↗</a>
                 <span class="stack">CMS · Web operations · GA4 / GTM · Release coordination</span>
             </div>
             <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
                 <span class="tag">Shipped product</span>
                 <h3>BorderPulse</h3>
-                <p>Public cross-border data product for real-time US-Mexico wait times and peso exchange-rate context. Built with 44 per-crossing search pages, scheduled data refresh, PWA support, and privacy-first analytics.</p>
+                <p>Public cross-border data product for US-Mexico wait times and peso exchange-rate context. Built with 44 search pages, scheduled refresh, PWA support, and privacy-first analytics.</p>
                 <span class="stack">Vite · React · Tailwind · GitHub Actions</span>
             </a>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-label">Selected independent systems</div>
-        <p class="section-intro">Selected examples of how I translate a commercial problem into a usable workflow or decision-support layer.</p>
+        <div class="section-label">Independent tools</div>
+        <p class="section-intro">Small systems I built to make tracking, qualification, reporting, and monitoring easier to run.</p>
         <div class="projects tools">
             <div class="card static tool">
                 <span class="tag">Campaign operations</span>
                 <h3>Measurement controls</h3>
-                <p>Designed campaign-naming and metadata workflows that make tracking, search presentation, and handoff more consistent.</p>
+                <p>UTM and metadata rules for cleaner campaign tracking, search presentation, and handoff.</p>
                 <a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
                 <span class="stack">UTM governance · Technical SEO · Content operations</span>
             </div>
             <div class="card static tool">
                 <span class="tag">Qualification design</span>
                 <h3>Lead scoring logic</h3>
-                <p>Built a transparent way to weight qualification signals, set thresholds, and make prioritization visible to an operator.</p>
+                <p>Transparent qualification rules that show why a lead is prioritized.</p>
                 <a href="https://digito.technology/tools/lead-scoring" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
                 <span class="stack">Pipeline design · Qualification · GTM systems</span>
             </div>
             <div class="card static tool">
                 <span class="tag">Reporting workflow</span>
                 <h3>Performance analysis and alerts</h3>
-                <p>Created reusable reporting and anomaly-detection patterns that turn multi-site activity into an actionable operating view.</p>
+                <p>Reusable reporting and alerts for spotting meaningful changes across sites.</p>
                 <a href="https://sbc1-code.github.io/analytics-hq/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
                 <span class="stack">GA4 API · Reporting automation · CI/CD</span>
             </div>
             <div class="card static tool">
                 <span class="tag">Signal monitoring</span>
                 <h3>Brand intelligence loop</h3>
-                <p>Built a public-source monitor that filters noise, scores relevance, and publishes a useful reporting layer.</p>
+                <p>Public-source monitoring that filters noise and surfaces useful signals.</p>
                 <a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
                 <span class="stack">Monitoring · Signal scoring · Reporting</span>
             </div>
@@ -437,12 +472,12 @@
     </div>
 
     <div class="section">
-        <div class="section-label">Commercial system</div>
+        <div class="section-label">Client system</div>
         <div class="projects">
             <div class="card static feature">
                 <span class="tag">Case Study</span>
                 <h3>Los Bravos | Lead Intelligence System</h3>
-                <p>Built and handed off the first GTM operating system for a cross-border industrial real-estate developer: a 6,218-record prospect database, CRM-style dashboard, a 1,121-lead target segment, 59 account-intelligence packets, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
+                <p>Built and handed off a lead-intelligence system for a cross-border industrial real-estate developer: 6,218 records, a 1,121-lead target segment, 59 account-intelligence packets, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
                 <p class="card-note">Client prospect data is confidential and never published. The linked packet is a sanitized sample built on a fictional company with synthetic data, to show the format and methodology.</p>
                 <a href="los-bravos-sample-packet.html" class="card-link">View sample lead intelligence packet →</a>
                 <span class="stack">CRM-style systems · ICP / account-based prospecting · AI workflows · GA4</span>
@@ -456,7 +491,7 @@
             <div class="card static feature">
                 <span class="tag">Case Study</span>
                 <h3>A Real Estate Partnership, Reconstructed | BRRRR Deal Stress-Tester</h3>
-                <p>I co-ran a four-unit rental through the full cycle from 2021 to 2026: buy, renovate, refinance, rent, sell. I reconstructed the capital history from bank records, servicer ledgers, and closing statements to prove why the partners roughly broke even, then built the calculator that would have caught the problem before closing.</p>
+                <p>Reconstructed a four-unit rental's full 2021–2026 buy, renovate, refinance, rent, and sell cycle from bank records, servicer ledgers, and closing statements. Then built a calculator that would have shown the break-even outcome before closing.</p>
                 <a href="roca-case-study.html" class="card-link">Read the case study →</a>
                 <a href="https://sbc1-code.github.io/deal-stress-tester/" target="_blank" rel="noopener noreferrer" class="card-link">Open the decision tool →</a>
                 <span class="stack">Forensic capital reconstruction · DSCR / IRR analysis · JavaScript</span>
@@ -487,8 +522,8 @@
         <div class="background-grid">
             <div class="bg-item">
                 <div class="role">Digital Content Specialist (MarCom Operations &amp; Analytics)</div>
-                <div class="org">SeeScan · Marketing &amp; Communications Analytics/Operations · Nov 2019 to present</div>
-                <div class="detail">Own digital operations and analytics across three B2B brand properties representing approximately 239K trailing-12-month sessions with effectively no paid media. The digital estate supports customer discovery, product evaluation, channel handoff, and post-sale self-service. Built the cross-property measurement and reporting layer, coordinate more than 40 named software-release cycles across the three properties, and created repeatable intake, implementation, QA, reporting, and handoff systems across marketing, product, engineering, sales, support, and DevOps.</div>
+                <div class="org"><a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan ↗</a> · Marketing &amp; Communications Analytics/Operations · Nov 2019 to present</div>
+                <div class="detail">Run digital operations and analytics for three B2B brand websites with approximately 239K trailing-12-month sessions and effectively no paid media. Built the shared measurement and reporting layer, coordinate more than 40 named software releases, and created repeatable intake, implementation, QA, reporting, and handoff workflows across marketing, product, engineering, sales, support, and DevOps.</div>
             </div>
             <div class="bg-item">
                 <div class="role">GTM Operations &amp; Analytics Consultant (Contract)</div>
