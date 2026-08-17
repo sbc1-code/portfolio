@@ -168,6 +168,34 @@
         .hero .meta a:hover { color: var(--text); border-color: var(--text); }
         .hero .meta a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+        .proof-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 32px;
+            max-width: 620px;
+        }
+
+        .proof-strip .proof-item {
+            border-left: 2px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        .proof-strip strong {
+            display: block;
+            font-size: 1.1em;
+            color: var(--text);
+            line-height: 1.2;
+        }
+
+        .proof-strip span {
+            display: block;
+            margin-top: 3px;
+            color: var(--text-secondary);
+            font-size: 0.72em;
+            line-height: 1.35;
+        }
+
         .hero .open-to {
             color: var(--accent);
             border: 1px solid var(--accent);
@@ -386,6 +414,7 @@
             .projects.tools { grid-template-columns: 1fr; }
             .projects.secondary { grid-template-columns: 1fr 1fr; }
             .background-grid { grid-template-columns: 1fr; }
+            .proof-strip { grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
             footer { padding: 32px 20px; flex-direction: column; gap: 8px; }
             nav { padding: 20px; }
         }
@@ -402,13 +431,18 @@
     <div class="hero">
         <h1>Sebastian Becerra<span class="dot"></span></h1>
         <p class="hero-tagline">Digital Content &amp; Web Operations | Analytics · CMS · Automation · Measurement | Bilingual EN/ES</p>
-        <p>I run digital operations for commercial websites: CMS, measurement, requirements, QA, and release delivery. At <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan</a>, I own the operating layer across three B2B sites. For Los Bravos, I built a lead-intelligence system from the ground up. The work below is the proof.</p>
+        <p>I build the B2B systems that help customers find, evaluate, and act. At <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan</a>, I run the websites, measurement, and release workflows behind three B2B properties. For Los Bravos, I built a commercial research and prioritization system from the ground up. The work below shows what I shipped and how I work.</p>
         <div class="meta">
             <span>Santa Barbara / San Diego, CA</span>
-            <span class="open-to">Open to Digital Experience, Web Operations, Marketing Operations &amp; Implementation · Remote</span>
+            <span class="open-to">Open to Web Operations, Digital Experience, Implementation &amp; Marketing Operations · Remote</span>
             <a href="https://linkedin.com/in/sbecerra1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="mailto:sebastianmbecerra5@gmail.com">Email</a>
+        </div>
+        <div class="proof-strip" aria-label="Selected proof points">
+            <div class="proof-item"><strong>7+ years</strong><span>B2B digital operations</span></div>
+            <div class="proof-item"><strong>40+ releases</strong><span>from scope to production</span></div>
+            <div class="proof-item"><strong>104% delivered</strong><span>of Los Bravos scope</span></div>
         </div>
     </div>
 
@@ -416,7 +450,7 @@
         <div class="section-label">Selected work</div>
         <div class="projects">
             <div class="card static feature">
-                <span class="tag">Operating system</span>
+                <span class="tag">Web ownership</span>
                 <h3>SeeScan | B2B websites</h3>
                 <p>Own the web operations layer across three B2B sites: CMS work, measurement, reporting, intake, QA, and handoff.</p>
                 <div class="proof-grid" aria-label="SeeScan proof points">
@@ -428,7 +462,7 @@
                 <span class="stack">CMS · Web operations · GA4 / GTM · Release coordination</span>
             </div>
             <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
-                <span class="tag">Shipped product</span>
+                <span class="tag">Applied systems</span>
                 <h3>BorderPulse</h3>
                 <p>Public cross-border data product for US-Mexico wait times and peso exchange-rate context. Built with 44 search pages, scheduled refresh, PWA support, and privacy-first analytics.</p>
                 <span class="stack">Vite · React · Tailwind · GitHub Actions</span>
@@ -441,43 +475,43 @@
         <p class="section-intro">Small systems I built to make tracking, qualification, reporting, and monitoring easier to run.</p>
         <div class="projects tools">
             <div class="card static tool">
-                <span class="tag">Campaign operations</span>
+                <span class="tag">Measurement</span>
                 <h3>Measurement controls</h3>
                 <p>UTM and metadata rules for cleaner campaign tracking, search presentation, and handoff.</p>
-                <a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
+                <a href="https://digito.technology/tools/utm-builder" target="_blank" rel="noopener noreferrer" class="card-link">Open UTM Builder →</a>
                 <span class="stack">UTM governance · Technical SEO · Content operations</span>
             </div>
             <div class="card static tool">
-                <span class="tag">Qualification design</span>
+                <span class="tag">Qualification</span>
                 <h3>Lead scoring logic</h3>
                 <p>Transparent qualification rules that show why a lead is prioritized.</p>
-                <a href="https://digito.technology/tools/lead-scoring" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
+                <a href="https://digito.technology/tools/lead-scoring" target="_blank" rel="noopener noreferrer" class="card-link">Open Lead Scoring Tool →</a>
                 <span class="stack">Pipeline design · Qualification · GTM systems</span>
             </div>
             <div class="card static tool">
-                <span class="tag">Reporting workflow</span>
+                <span class="tag">Reporting</span>
                 <h3>Performance analysis and alerts</h3>
                 <p>Reusable reporting and alerts for spotting meaningful changes across sites.</p>
-                <a href="https://sbc1-code.github.io/analytics-hq/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
+                <a href="https://sbc1-code.github.io/analytics-hq/" target="_blank" rel="noopener noreferrer" class="card-link">Open Analytics HQ →</a>
                 <span class="stack">GA4 API · Reporting automation · CI/CD</span>
             </div>
             <div class="card static tool">
-                <span class="tag">Signal monitoring</span>
+                <span class="tag">Monitoring</span>
                 <h3>Brand intelligence loop</h3>
                 <p>Public-source monitoring that filters noise and surfaces useful signals.</p>
-                <a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card-link">See system →</a>
+                <a href="https://sbc1-code.github.io/brand-monitor/" target="_blank" rel="noopener noreferrer" class="card-link">Open Brand Monitor →</a>
                 <span class="stack">Monitoring · Signal scoring · Reporting</span>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <div class="section-label">Client system</div>
+        <div class="section-label">Commercial delivery</div>
         <div class="projects">
             <div class="card static feature">
-                <span class="tag">Case Study</span>
+                <span class="tag">Client delivery</span>
                 <h3>Los Bravos | Lead Intelligence System</h3>
-                <p>Built and handed off a lead-intelligence system for a cross-border industrial real-estate developer: 6,218 records, a 1,121-lead target segment, 59 account-intelligence packets, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
+                <p>Built and handed off a lead-intelligence system for a cross-border industrial real-estate developer: 6,218 records, a 1,121-lead target segment, 59 company research briefs, and automated reporting. I proposed, priced, and closed the engagement, then delivered 104% of contracted scope.</p>
                 <p class="card-note">Client prospect data is confidential and never published. The linked packet is a sanitized sample built on a fictional company with synthetic data, to show the format and methodology.</p>
                 <a href="los-bravos-sample-packet.html" class="card-link">View sample lead intelligence packet →</a>
                 <span class="stack">CRM-style systems · ICP / account-based prospecting · AI workflows · GA4</span>
@@ -486,10 +520,10 @@
     </div>
 
     <div class="section">
-        <div class="section-label">Independent product and decision proof</div>
+        <div class="section-label">Decision proof</div>
         <div class="projects">
             <div class="card static feature">
-                <span class="tag">Case Study</span>
+                <span class="tag">Independent case study</span>
                 <h3>A Real Estate Partnership, Reconstructed | BRRRR Deal Stress-Tester</h3>
                 <p>Reconstructed a four-unit rental's full 2021–2026 buy, renovate, refinance, rent, and sell cycle from bank records, servicer ledgers, and closing statements. Then built a calculator that would have shown the break-even outcome before closing.</p>
                 <a href="roca-case-study.html" class="card-link">Read the case study →</a>
@@ -500,7 +534,7 @@
     </div>
 
     <div class="section">
-        <div class="section-label">Working with</div>
+        <div class="section-label">Tools and methods</div>
         <div class="skills">
             <span class="skill">GA4 / Google Tag Manager / Looker Studio</span>
             <span class="skill">Web Operations</span>
