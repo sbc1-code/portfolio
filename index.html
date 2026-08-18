@@ -297,6 +297,32 @@
         .card-link:hover { color: var(--text); border-color: var(--text); }
         .card-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
+        .site-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin-top: 2px;
+        }
+
+        .site-links a {
+            color: var(--accent);
+            font-size: 0.78em;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .site-links a:hover { color: var(--text); border-color: var(--text); }
+        .site-links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+        .work-list {
+            margin: 2px 0 0 18px;
+            color: var(--text-secondary);
+            font-size: 0.78em;
+            line-height: 1.5;
+        }
+
+        .work-list li { padding-left: 3px; }
+
         /* Compact cards for the secondary "Also built" grid */
         .projects.secondary { grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
         .card.compact { padding: 16px; gap: 6px; }
@@ -401,11 +427,11 @@
     <main>
     <div class="hero">
         <h1>Sebastian Becerra<span class="dot"></span></h1>
-        <p class="hero-tagline">Digital Content &amp; Web Operations | Analytics · CMS · Automation · Measurement | Bilingual EN/ES</p>
-        <p>I help run B2B websites and the work around them: content updates, measurement, QA, and release notes. At <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan</a>, I support three B2B websites. For Los Bravos, a cross-border real-estate client, I built a prospect database and dashboard. The examples below show the work.</p>
+        <p class="hero-tagline">Digital Content &amp; Web Operations | CMS · SEO · Frontend · Measurement | Bilingual EN/ES</p>
+        <p>I run and improve B2B websites: content, technical SEO, performance, measurement, QA, and frontend fixes. At <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan</a>, I support three public sites. I also built a prospect database and dashboard for Los Bravos, a cross-border real-estate client.</p>
         <div class="meta">
             <span>Santa Barbara / San Diego, CA</span>
-            <span class="open-to">Open to Web Operations, Digital Experience, Implementation &amp; Marketing Operations · Remote</span>
+            <span class="open-to">Open to Website Manager, Web Operations, Digital Experience &amp; Frontend roles · Remote</span>
             <a href="https://linkedin.com/in/sbecerra1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/sbc1-code" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="mailto:sebastianmbecerra5@gmail.com">Email</a>
@@ -418,14 +444,23 @@
             <div class="card static feature">
                 <span class="tag">Website work</span>
                 <h3>SeeScan | B2B websites</h3>
-                <p>Help keep three B2B websites current and measurable through content updates, release notes, reporting, and QA.</p>
+                <p>Run and improve three B2B sites from technical SEO and page performance to frontend behavior, search, translation, measurement, and release notes.</p>
                 <div class="proof-grid" aria-label="SeeScan proof points">
                     <div class="proof-point"><strong>3</strong><span>B2B websites</span></div>
                     <div class="proof-point"><strong>239K</strong><span>website sessions in the last 12 months</span></div>
                     <div class="proof-point"><strong>GA4 + GTM</strong><span>measurement and reporting</span></div>
                 </div>
-                <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer" class="card-link">SeeScan website ↗</a>
-                <span class="stack">Content updates · GA4 / GTM · QA · Release notes</span>
+                <ul class="work-list">
+                    <li>Improved technical SEO, page performance, and frontend behavior.</li>
+                    <li>Built translation tools using the Google API.</li>
+                    <li>Fixed the site search bar and maintained product release notes.</li>
+                </ul>
+                <div class="site-links" aria-label="SeeScan websites">
+                    <a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan ↗</a>
+                    <a href="https://support.seesnake.com/" target="_blank" rel="noopener noreferrer">SeeSnake Support ↗</a>
+                    <a href="https://www.deepsea.com/" target="_blank" rel="noopener noreferrer">DeepSea Power &amp; Light ↗</a>
+                </div>
+                <span class="stack">Content updates · SEO · Frontend fixes · GA4 / GTM</span>
             </div>
             <a href="https://borderpulse.com" target="_blank" rel="noopener noreferrer" class="card">
                 <span class="tag">Shipped product</span>
@@ -523,7 +558,7 @@
             <div class="bg-item">
                 <div class="role">Digital Content Specialist (MarCom Operations &amp; Analytics)</div>
                 <div class="org"><a href="https://www.seescan.com/" target="_blank" rel="noopener noreferrer">SeeScan ↗</a> · Marketing &amp; Communications Analytics/Operations · Nov 2019 to present</div>
-                <div class="detail">Help run three B2B brand websites with approximately 239K website sessions in the last 12 months and effectively no paid media. Maintain product release notes, website content, GA4/GTM measurement, reporting, QA, and coordination across marketing, product, engineering, sales, support, and DevOps.</div>
+                <div class="detail">Run and improve three B2B sites with approximately 239K website sessions in the last 12 months and effectively no paid media. Improved technical SEO, page performance, frontend behavior, and site search; built Google API translation tools; and maintained product release notes, website content, GA4/GTM measurement, reporting, and QA.</div>
             </div>
             <div class="bg-item">
                 <div class="role">GTM Operations &amp; Analytics Consultant (Contract)</div>
