@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Synthetic product-operations proof for closing the loop between customer friction and shipped improvements." />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Customer Friction Loop — Synthetic Product Operations Proof</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="shell hero">
+    <div>
+      <p class="eyebrow">PRODUCT OPERATIONS PROOF · SYNTHETIC DATA</p>
+      <h1>Customer Friction Loop</h1>
+      <p class="lede">A working surface for turning scattered customer signals into the smallest useful fix, a measurable experiment, and a durable operating loop.</p>
+    </div>
+    <aside class="decision-card">
+      <span class="decision-label">Recommended next ship</span>
+      <strong>Verified payment-status response</strong>
+      <p>Small UI + workflow change · 2-day experiment</p>
+    </aside>
+  </header>
+
+  <main class="shell">
+    <section class="metrics" aria-label="Opportunity summary">
+      <article><span>Signals reviewed</span><strong>12</strong><small>support + onboarding</small></article>
+      <article><span>Friction clusters</span><strong>3</strong><small>repeatable patterns</small></article>
+      <article><span>Estimated drag</span><strong>6.8h</strong><small>human time / week</small></article>
+      <article><span>Top evidence score</span><strong>92</strong><small>out of 100</small></article>
+    </section>
+
+    <nav class="tabs" aria-label="Workspace views">
+      <button class="tab active" data-view="signals">Signal inbox</button>
+      <button class="tab" data-view="prototype">Workflow prototype</button>
+      <button class="tab" data-view="decision">Experiment memo</button>
+    </nav>
+
+    <section id="signals" class="view active">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">EVIDENCE BEFORE ROADMAP</p>
+          <h2>Cluster the recurring friction</h2>
+          <p>Each item is synthetic. Select a row to inspect the evidence and right-sized response.</p>
+        </div>
+        <label class="filter">Cluster
+          <select id="clusterFilter">
+            <option value="all">All signals</option>
+            <option value="status">Payment status</option>
+            <option value="category">Category confidence</option>
+            <option value="duplicate">Duplicate capture</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="signal-layout">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Signal</th><th>Source</th><th>Cluster</th><th>Severity</th><th></th></tr></thead>
+            <tbody id="signalRows"></tbody>
+          </table>
+        </div>
+        <aside class="inspector" id="inspector" aria-live="polite">
+          <p class="eyebrow" id="signalId">SIGNAL</p>
+          <h3 id="signalTitle">Select a signal</h3>
+          <dl>
+            <div><dt>Customer reality</dt><dd id="signalReality">Choose a row to inspect the underlying friction.</dd></div>
+            <div><dt>Current failure</dt><dd id="signalFailure">—</dd></div>
+            <div><dt>Smallest useful response</dt><dd id="signalFix">—</dd></div>
+            <div><dt>Success evidence</dt><dd id="signalMetric">—</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="opportunities">
+        <article class="opportunity selected">
+          <header><span class="badge high">High leverage</span><strong>92 / 100</strong></header>
+          <h3>Payment-status ambiguity</h3>
+          <p>Five signals show customers cannot distinguish scheduled, processing, completed, and failed states.</p>
+          <footer><span>Effort: Small</span><span>Owner: Product Ops + Eng</span></footer>
+        </article>
+        <article class="opportunity">
+          <header><span class="badge medium">Validate</span><strong>78 / 100</strong></header>
+          <h3>Category confidence</h3>
+          <p>Four signals show automated categories need clearer confidence and a faster review path.</p>
+          <footer><span>Effort: Medium</span><span>Owner: Product + Data</span></footer>
+        </article>
+        <article class="opportunity">
+          <header><span class="badge low">Monitor</span><strong>71 / 100</strong></header>
+          <h3>Duplicate capture</h3>
+          <p>Three signals suggest repeated uploads create cleanup work, but the impact is still bounded.</p>
+          <footer><span>Effort: Small</span><span>Owner: Engineering</span></footer>
+        </article>
+      </div>
+    </section>
+
+    <section id="prototype" class="view">
+      <div class="section-head">
+        <div><p class="eyebrow">PROTOTYPE THE LOOP</p><h2>Evidence-gated status assistant</h2><p>Automate the common case without hiding uncertainty or removing the human path.</p></div>
+        <button id="runPrototype" class="primary">Run synthetic case</button>
+      </div>
+      <div class="prototype-grid">
+        <div class="flow" id="flow">
+          <article data-step="1"><span>1</span><div><strong>Detect intent</strong><p>Customer asks whether a bill was paid.</p></div></article>
+          <article data-step="2"><span>2</span><div><strong>Verify system state</strong><p>Read the latest transaction event; never infer completion.</p></div></article>
+          <article data-step="3"><span>3</span><div><strong>Respond or escalate</strong><p>State the verified status, or create a review task when evidence conflicts.</p></div></article>
+          <article data-step="4"><span>4</span><div><strong>Capture resolution</strong><p>Log outcome, time-to-resolution, and whether the response was sufficient.</p></div></article>
+        </div>
+        <aside class="run-output">
+          <p class="eyebrow">SYNTHETIC RUN</p>
+          <div id="runState" class="run-state idle">Ready</div>
+          <dl>
+            <div><dt>Input</dt><dd>“Did the supplier payment go through?”</dd></div>
+            <div><dt>Evidence</dt><dd id="evidenceText">Waiting for run</dd></div>
+            <div><dt>Response</dt><dd id="responseText">Waiting for run</dd></div>
+            <div><dt>Next action</dt><dd id="actionText">Waiting for run</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section id="decision" class="view">
+      <div class="memo">
+        <p class="eyebrow">TWO-DAY EXPERIMENT MEMO</p>
+        <h2>Ship the smallest fix that proves whether clearer state reduces customer work.</h2>
+        <p class="memo-lede">The evidence supports a narrow experiment: expose a verified payment state and use the same state to answer routine status questions. Do not rebuild the payments surface or automate exceptions yet.</p>
+        <div class="memo-grid">
+          <article><h3>Change</h3><p>Add plain-language state, latest-event timestamp, and a review route when transaction evidence is missing or conflicting.</p></article>
+          <article><h3>Primary metric</h3><p>Reduce repeat payment-status contacts by at least 25% among exposed customers over two weeks.</p></article>
+          <article><h3>Guardrail</h3><p>Zero false “completed” responses. Any evidence conflict must route to human review.</p></article>
+          <article><h3>Decision rule</h3><p>Scale if the contact rate falls and accuracy holds; revise if comprehension improves but repeat contacts remain; stop on any false completion.</p></article>
+        </div>
+        <div class="handoff"><strong>Durable handoff</strong><span>Event definition · response logic · exception queue · dashboard metric · named owner</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="shell"><p>Built from public role responsibilities using fully synthetic signals. No Ambrook customer, financial, or internal company data is included.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
