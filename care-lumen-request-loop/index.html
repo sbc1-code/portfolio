@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Request-to-Release Loop — Synthetic Product Operations Proof</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">PRODUCT OPERATIONS PROOF · SYNTHETIC DATA</p>
+      <h1>Request-to-Release Loop</h1>
+      <p class="lede">A working surface for turning an inbound product request into a testable requirement, a visible delivery plan, and a measured rollout.</p>
+    </div>
+    <aside class="hero-card">
+      <span>Selected request</span>
+      <strong>Clarify referral status</strong>
+      <p>Customer signal → acceptance criteria → rollout check</p>
+    </aside>
+  </header>
+
+  <main>
+    <section class="metrics" aria-label="Product operations summary">
+      <article><span>Requests reviewed</span><strong>9</strong><small>customer + internal</small></article>
+      <article><span>Ready to plan</span><strong id="readyCount">3</strong><small>evidence complete</small></article>
+      <article><span>At-risk dependencies</span><strong>2</strong><small>need an owner</small></article>
+      <article><span>Rollout signal</span><strong>+18%</strong><small>synthetic task success</small></article>
+    </section>
+
+    <nav class="tabs" aria-label="Workspace views">
+      <button class="tab active" data-view="intake">Request intake</button>
+      <button class="tab" data-view="delivery">Delivery gates</button>
+      <button class="tab" data-view="adoption">Rollout & learning</button>
+    </nav>
+
+    <section id="intake" class="view active">
+      <div class="section-heading">
+        <div><p class="eyebrow">MATURITY BEFORE PRIORITY</p><h2>Turn requests into decision-ready work</h2></div>
+        <label>Signal type
+          <select id="signalFilter">
+            <option value="all">All signals</option>
+            <option value="customer">Customer</option>
+            <option value="internal">Internal</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="intake-grid">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Request</th><th>Source</th><th>Evidence</th><th>State</th><th></th></tr></thead>
+            <tbody id="requestRows"></tbody>
+          </table>
+        </div>
+        <aside class="inspector" aria-live="polite">
+          <p class="eyebrow" id="requestId">REQ-01</p>
+          <h3 id="requestTitle">Clarify referral status</h3>
+          <dl>
+            <dt>User reality</dt><dd id="requestReality"></dd>
+            <dt>Evidence gap</dt><dd id="requestGap"></dd>
+            <dt>Smallest testable change</dt><dd id="requestChange"></dd>
+          </dl>
+          <button id="matureButton" class="primary">Mature this request</button>
+          <p id="matureNote" class="note">Adds a problem statement, acceptance criteria, owner, and measurement plan.</p>
+        </aside>
+      </div>
+
+      <div class="requirement-card" id="requirementCard">
+        <div><p class="eyebrow">MATURED REQUIREMENT</p><h3>Referral status should be unambiguous at a glance</h3></div>
+        <div class="requirement-grid">
+          <div><span>Problem</span><p>Coordinators repeat manual checks because “received,” “reviewing,” and “needs action” are not distinct.</p></div>
+          <div><span>Definition of done</span><p>Each state has one label, one timestamp, and one explicit next action.</p></div>
+          <div><span>Guardrail</span><p>No status is inferred when source events conflict; route the item for review.</p></div>
+          <div><span>Measure</span><p>Task completion, repeat status checks, and exception rate after rollout.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="delivery" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">VISIBLE DELIVERY</p><h2>Move the request through explicit gates</h2></div>
+        <span class="pill">Target: 10 working days</span>
+      </div>
+      <div class="gate-grid" id="gateGrid"></div>
+      <section class="dependency-card">
+        <div><p class="eyebrow">DEPENDENCY WATCH</p><h3>Two items need intervention</h3></div>
+        <ul>
+          <li><span class="risk high">High</span><strong>Event naming</strong><p>Analytics owner not assigned; blocks post-launch measurement.</p></li>
+          <li><span class="risk medium">Medium</span><strong>Enablement copy</strong><p>Training review is due before the release-candidate gate.</p></li>
+        </ul>
+      </section>
+    </section>
+
+    <section id="adoption" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">SHIP, LEARN, ADJUST</p><h2>Measure whether the workflow actually improved</h2></div>
+        <button id="runRollout" class="primary">Run synthetic rollout</button>
+      </div>
+      <div class="rollout-grid">
+        <article class="score-card"><span>Task success</span><strong id="taskSuccess">72%</strong><small>target ≥ 85%</small></article>
+        <article class="score-card"><span>Repeat checks</span><strong id="repeatChecks">31%</strong><small>target ≤ 20%</small></article>
+        <article class="score-card"><span>Exception rate</span><strong id="exceptionRate">4.2%</strong><small>guardrail ≤ 5%</small></article>
+      </div>
+      <section class="learning-card">
+        <div><p class="eyebrow">ROLLOUT DECISION</p><h3 id="decisionTitle">Ready to test</h3></div>
+        <p id="decisionCopy">Start with a bounded coordinator cohort. Scale only if task success improves without increasing ambiguous or incorrect states.</p>
+        <div class="decision-rules"><span>Scale: target met</span><span>Revise: partial lift</span><span>Stop: guardrail breached</span></div>
+      </section>
+    </section>
+  </main>
+
+  <footer>Built from public role responsibilities with fully synthetic workflow data. No Care Lumen customer, clinical, patient, or internal company data is included.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
