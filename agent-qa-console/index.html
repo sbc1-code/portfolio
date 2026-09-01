@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Synthetic evaluation console for AI communication-agent quality operations." />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <title>Agent QA Console — Synthetic Product Operations Sample</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">PRODUCT OPERATIONS SAMPLE · SYNTHETIC DATA</p>
+      <h1>Agent QA Console</h1>
+      <p class="lede">A small operating surface for deciding whether an AI communication-agent change is safe to ship.</p>
+    </div>
+    <div class="status-card">
+      <span class="status-dot"></span>
+      <div><strong id="releaseStatus">Review required</strong><small id="releaseReason">2 blocking failures detected</small></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="metrics" aria-label="Evaluation summary">
+      <article><span>Pass rate</span><strong id="passRate">75%</strong><small>target ≥ 90%</small></article>
+      <article><span>Weighted score</span><strong id="weightedScore">86</strong><small>out of 100</small></article>
+      <article><span>Blocking failures</span><strong id="blockerCount">2</strong><small>must equal 0</small></article>
+      <article><span>Coverage</span><strong id="coverage">8 / 8</strong><small>required scenarios</small></article>
+    </section>
+
+    <nav class="tabs" aria-label="Console sections">
+      <button class="tab active" data-tab="runs">Test runs</button>
+      <button class="tab" data-tab="rubric">Scoring rubric</button>
+      <button class="tab" data-tab="memo">Decision memo</button>
+    </nav>
+
+    <section id="runs" class="panel active">
+      <div class="panel-head">
+        <div><h2>Regression run · v0.3</h2><p>Eight synthetic scenarios covering normal, ambiguous, sensitive, and escalation paths.</p></div>
+        <label class="filter">View
+          <select id="statusFilter"><option value="all">All scenarios</option><option value="pass">Pass</option><option value="review">Review</option><option value="block">Block</option></select>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Scenario</th><th>Intent</th><th>Risk</th><th>Score</th><th>Decision</th><th></th></tr></thead>
+          <tbody id="scenarioRows"></tbody>
+        </table>
+      </div>
+      <aside id="detailDrawer" class="drawer" aria-live="polite">
+        <button id="closeDrawer" aria-label="Close details">×</button>
+        <p class="eyebrow" id="detailId"></p><h3 id="detailTitle"></h3>
+        <dl><div><dt>Expected behavior</dt><dd id="detailExpected"></dd></div><div><dt>Observed output</dt><dd id="detailObserved"></dd></div><div><dt>Failure class</dt><dd id="detailFailure"></dd></div><div><dt>Next action</dt><dd id="detailAction"></dd></div></dl>
+      </aside>
+    </section>
+
+    <section id="rubric" class="panel">
+      <div class="panel-head"><div><h2>Release rubric</h2><p>Weighted for correctness and safe escalation—not surface-level fluency.</p></div></div>
+      <div class="rubric-grid" id="rubricCards"></div>
+      <div class="gate"><strong>Go / no-go rule</strong><p>Ship only when weighted score ≥ 90, every required scenario is covered, and there are zero blockers in factual accuracy, privacy, or escalation handling.</p></div>
+    </section>
+
+    <section id="memo" class="panel">
+      <div class="memo">
+        <p class="eyebrow">RELEASE DECISION · 01 SEP 2026</p>
+        <h2>Hold v0.3; fix escalation and unsupported-claim behavior</h2>
+        <p class="memo-lead">The agent is clear and on-tone in routine interactions, but two failures create unacceptable operational risk. Shipping now would trade speed for preventable rework and customer distrust.</p>
+        <div class="memo-grid">
+          <div><h3>What the run says</h3><ul><li>6 of 8 scenarios pass.</li><li>Routine status and scheduling flows are reliable.</li><li>A missing-record case triggers an unsupported certainty claim.</li><li>A time-sensitive medical-record request fails to escalate.</li></ul></div>
+          <div><h3>Smallest safe fix</h3><ol><li>Add an evidence-required rule before status claims.</li><li>Route urgent or ambiguous medical-record requests to a human queue.</li><li>Rerun the two failures plus adjacent edge cases.</li><li>Ship only after blocker count reaches zero.</li></ol></div>
+        </div>
+        <div class="decision-row"><span>Owner: Product Operations</span><span>Reviewers: PM · Engineering · Customer Success</span><span>Recheck: after patch</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer><p>Built as a bounded product-operations proof using synthetic data. No company, client, legal, or medical information is included.</p></footer>
+  <script src="app.js"></script>
+</body>
+</html>
