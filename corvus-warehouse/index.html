@@ -43,6 +43,6 @@ for(const l of labels){ctx.font=(l.bg?'bold ':'')+l.size+'px Arial';ctx.textAlig
 }
 function resize(){const r=canvas.getBoundingClientRect();width=r.width;height=r.height;const d=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(width*d);canvas.height=Math.round(height*d);ctx.setTransform(d,0,0,d,0,0);dirty=true}
 new ResizeObserver(resize).observe(canvas);resize();
-function frame(now){if(running){elapsed+=Math.min((now-last)/1000,.1);if(elapsed>=duration){finish()}else{const order=[0,1,2,3,4,5,11,10,9,8,7,6],n=Math.floor(elapsed/duration*12);let changed=false;for(let j=0;j<n;j++){if(!slots[order[j]].done){slots[order[j]].done=true;changed=true;}}if(changed)update()}dirty=true}last=now;if(dirty){draw(now);dirty=false}requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
+function frame(now){if(running){elapsed+=(now-last)/1000;if(elapsed>=duration){finish()}else{const order=[0,1,2,3,4,5,11,10,9,8,7,6],n=Math.floor(elapsed/duration*12);let changed=false;for(let j=0;j<n;j++){if(!slots[order[j]].done){slots[order[j]].done=true;changed=true;}}if(changed)update()}dirty=true}last=now;if(dirty){draw(now);dirty=false}requestAnimationFrame(frame)}update();requestAnimationFrame(frame);
 })();
 </script></body></html>
