@@ -29,8 +29,8 @@ function label(t,p,color='#cbdbe6',size=10,bg=false){labels.push({t,p:project(p)
 function draw(now){ctx.clearRect(0,0,width,height);faces=[];labels=[];hits=[];
 poly([[-7,0,-4],[7,0,-4],[7,0,5],[-7,0,5]],'#102431');for(let x=-7;x<=7;x++)line([[x,.005,-4],[x,.005,5]],'#1b3747');for(let z=-4;z<=5;z++)line([[-7,.005,z],[7,.005,z]],'#1b3747');line([[-6,.016,-2.7],[6,.016,-2.7]],'#5c6541',2);line([[-6,.016,-2.85],[6,.016,-2.85]],'#5c6541',1);
 // Back wall and simplified steel rack. World geometry is projected for an orbitable 3D scene.
-poly([[-6,0,1.05],[6,0,1.05],[6,5.2,1.05],[-6,5.2,1.05]],'#112431');for(let j=0;j<7;j++){const x=(j-3)*1.75;box(x,0,0,.095,4.8,1.65,['#1a5661','#267484','#388899']);line([[x,.2,.78],[x+.8,2.5,.78]],'#264857');}
-for(let level of [.5,2.55,4.63]){box(0,level,0,10.6,.12,1.55,['#80421f','#d56b25','#ed8b3d']);}
+poly([[-6,0,1.05],[6,0,1.05],[6,5.2,1.05],[-6,5.2,1.05]],'#112431');faces.forEach((f,i)=>{f.d=10000-i});for(let j=0;j<7;j++){const x=(j-3)*1.75;box(x,0,0,.095,4.8,1.65,['#1a5661','#267484','#388899']);line([[x,.2,.78],[x+.8,2.5,.78]],'#264857');}
+for(let level of [.5,2.55,4.63])for(let bay=0;bay<6;bay++){box((bay-2.5)*1.75,level,0,1.75,.12,1.55,['#80421f','#d56b25','#ed8b3d']);}
 slots.forEach((s,i)=>{const has=s.observed!=='Empty';const color=s.done?(s.expected===s.observed?'#80d9bf':'#ff963e'):'#709baa';if(has){box(s.x,s.y,-.03,1.31,.12,1.05,['#665341','#99764e','#b49369']);for(let a=0;a<2;a++)for(let b=0;b<2;b++)box(s.x+(a-.5)*.62,s.y+.12+b*.59,-.03,.6,.58,.85,['#876440','#c59660','#dcb987']);box(s.x,s.y+.35,-.469,.34,.28,.011,['#d1d8d7','#e1e8e4','#fff']);for(let n=0;n<6;n++)line([[s.x-.12+n*.045,s.y+.4,-.48],[s.x-.12+n*.045,s.y+.57,-.48]],'#253440',n%2?1:2)}
 if(s.done||selected===i){const y=s.y-.02;line([[s.x-.77,y,-.86],[s.x+.77,y,-.86],[s.x+.77,y+1.71,-.86],[s.x-.77,y+1.71,-.86],[s.x-.77,y,-.86]],selected===i?'#5bd3ff':color,selected===i?3:1.5)}
 const target=[s.x,s.y+1.6,-.88];label(s.id,target,color,selected===i?12:10,true);const p=project([s.x,s.y+.85,-.95]);hits.push({...p,i});});
