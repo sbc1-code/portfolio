@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="An independent working concept for Eve: an AI-native readiness assessment and answer-engine measurement workspace for plaintiff firms.">
+  <title>AI-Native Readiness Lab | Independent Eve concept</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AI-Native Readiness Lab",
+    "description": "A working assessment and answer-engine measurement concept for plaintiff law firms.",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web browser",
+    "author": {"@type": "Person", "name": "Sebastian Becerra"},
+    "dateModified": "2026-09-14",
+    "isAccessibleForFree": true,
+    "citation": [
+      "https://www.eve.legal/tort-report/what-is-an-ai-native-law-firm",
+      "https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf",
+      "https://www.nist.gov/itl/ai-risk-management-framework",
+      "https://www.eve.legal/webinars/how-duffy-and-duffy-went-ai-native-in-4-steps"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --black: #090909;
+      --paper: #f8f7f3;
+      --white: #fff;
+      --ink: #0a0a0a;
+      --muted: #5e5c57;
+      --line: #d8d5cd;
+      --signal: #e95831;
+      --signal-soft: #f8dfd6;
+      --green: #22614a;
+      --green-soft: #dcebe4;
+      --blue: #315e7c;
+      --blue-soft: #dce9f0;
+      --shadow: 0 18px 60px rgba(0,0,0,.14);
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--black); color: var(--ink); font: 16px/1.5 var(--sans); }
+    button, input, select { font: inherit; }
+    button, select { cursor: pointer; }
+    a { color: inherit; text-underline-offset: 4px; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid #1976d2; outline-offset: 3px; }
+    .skip { position: absolute; top: -100px; left: 16px; z-index: 30; background: #fff; color: #000; padding: 10px 14px; }
+    .skip:focus { top: 12px; }
+    .shell { min-height: 100vh; padding: 32px 0 0; }
+    .topbar { width: min(1220px, calc(100% - 32px)); margin: 0 auto; min-height: 64px; display: flex; align-items: center; justify-content: space-between; color: #fff; gap: 24px; }
+    .back { display: inline-flex; gap: 12px; align-items: center; text-decoration: none; font-size: 14px; }
+    .menu-mark { width: 48px; height: 48px; display: grid; place-items: center; background: var(--paper); color: var(--black); border-radius: 8px; font-size: 19px; }
+    .sample-note { font-size: 12px; color: #b9b9b9; text-align: right; }
+    .paper { width: min(1220px, calc(100% - 32px)); margin: 18px auto 0; background: var(--paper); min-height: calc(100vh - 114px); border-radius: 36px 36px 0 0; overflow: hidden; box-shadow: var(--shadow); }
+    .mast { padding: 70px 72px 36px; border-bottom: 1px solid var(--line); }
+    .brandline { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; }
+    .brand { font: 500 clamp(32px, 4vw, 58px)/.95 var(--serif); letter-spacing: -3px; }
+    .brand em { font-weight: 400; }
+    .edition { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .12em; }
+    .tabs { display: flex; gap: 10px; padding: 22px 72px; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; background: rgba(248,247,243,.97); backdrop-filter: blur(10px); }
+    .tab { border: 1px solid var(--line); background: transparent; padding: 10px 16px; border-radius: 999px; color: var(--muted); font-weight: 650; font-size: 13px; }
+    .tab[aria-selected="true"] { background: var(--black); border-color: var(--black); color: #fff; }
+    .view { display: none; }
+    .view.active { display: block; }
+    .hero { padding: 64px 72px 52px; display: grid; grid-template-columns: minmax(0,1fr) 300px; gap: 70px; align-items: end; }
+    .kicker { display: inline-block; border: 1px solid #bbb7ae; background: #eeece6; border-radius: 4px; padding: 6px 9px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.035em; line-height: 1.04; margin: 0; }
+    h1 { font-size: clamp(48px, 6.3vw, 88px); margin-top: 24px; max-width: 850px; }
+    h2 { font-size: clamp(34px, 4vw, 56px); }
+    h3 { font-size: 27px; }
+    .dek { font: 500 clamp(20px, 2.1vw, 28px)/1.25 var(--serif); margin: 26px 0 0; max-width: 820px; }
+    .hero-aside { border-top: 3px solid var(--black); padding-top: 18px; color: var(--muted); font-size: 14px; }
+    .hero-aside strong { color: var(--ink); display: block; font: 500 36px/1 var(--serif); margin-bottom: 12px; }
+    .answer { background: var(--white); border-block: 1px solid var(--line); padding: 34px 72px; display: grid; grid-template-columns: 180px 1fr; gap: 34px; }
+    .answer-label { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--signal); }
+    .answer p { margin: 0; max-width: 850px; font: 500 21px/1.38 var(--serif); }
+    .assessment { padding: 58px 72px 78px; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 30px; }
+    .section-head p { max-width: 480px; color: var(--muted); margin: 0; }
+    .progress { height: 8px; background: #e4e1d9; margin-bottom: 26px; overflow: hidden; }
+    .progress span { display: block; width: 0; height: 100%; background: var(--signal); transition: width .25s ease; }
+    .question { display: none; background: #fff; border: 1px solid var(--line); padding: 34px; min-height: 315px; }
+    .question.active { display: block; }
+    .q-meta { display: flex; justify-content: space-between; color: var(--muted); font-size: 12px; margin-bottom: 22px; }
+    .question h3 { max-width: 720px; font-size: clamp(28px, 3vw, 42px); }
+    .options { display: grid; gap: 10px; margin-top: 30px; }
+    .option { display: grid; grid-template-columns: 30px 1fr; text-align: left; gap: 12px; border: 1px solid var(--line); background: var(--paper); padding: 14px 16px; color: var(--ink); }
+    .option:hover { border-color: var(--ink); }
+    .option.selected { border: 2px solid var(--ink); padding: 13px 15px; background: #fff; }
+    .option-index { color: var(--signal); font-weight: 800; }
+    .q-nav { display: flex; justify-content: space-between; margin-top: 18px; gap: 12px; }
+    .btn { border: 1px solid var(--black); background: var(--black); color: #fff; padding: 12px 18px; min-height: 46px; font-weight: 700; }
+    .btn.secondary { background: transparent; color: var(--ink); }
+    .btn:disabled { opacity: .42; cursor: not-allowed; }
+    .result { display: none; padding: 38px; border: 1px solid var(--ink); background: #fff; }
+    .result.active { display: grid; grid-template-columns: 180px 1fr; gap: 34px; }
+    .score-ring { width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--signal) var(--score-angle, 0deg), #e7e3da 0); position: relative; }
+    .score-ring:after { content: ""; position: absolute; inset: 14px; border-radius: 50%; background: #fff; }
+    .score-ring strong { z-index: 1; font: 500 38px/1 var(--serif); }
+    .result-copy h3 { font-size: 40px; }
+    .result-copy p { color: var(--muted); max-width: 670px; }
+    .next-steps { margin: 22px 0; padding: 0; list-style: none; }
+    .next-steps li { border-top: 1px solid var(--line); padding: 10px 0; }
+    .principles { padding: 65px 72px 80px; background: #fff; border-top: 1px solid var(--line); }
+    .principle-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-top: 35px; }
+    .principle { background: var(--paper); padding: 30px; }
+    .num { color: var(--signal); font: 800 11px/1 var(--sans); letter-spacing: .1em; }
+    .principle h3 { margin: 14px 0 12px; }
+    .principle p { color: var(--muted); margin: 0; }
+    .principle a { display: inline-block; margin-top: 16px; font-size: 12px; font-weight: 700; }
+    .operator-hero { padding: 58px 72px 38px; display: flex; justify-content: space-between; gap: 40px; align-items: end; }
+    .operator-hero p { max-width: 560px; color: var(--muted); }
+    .metrics { display: grid; grid-template-columns: repeat(4,1fr); margin: 0 72px 32px; border: 1px solid var(--line); background: var(--line); gap: 1px; }
+    .metric { background: #fff; padding: 24px; }
+    .metric small { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
+    .metric strong { display: block; font: 500 36px/1 var(--serif); margin-top: 9px; }
+    .workspace { margin: 0 72px 72px; border: 1px solid var(--line); background: #fff; }
+    .workspace-bar { padding: 18px; display: flex; justify-content: space-between; gap: 16px; align-items: center; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+    .workspace-bar p { margin: 0; color: var(--muted); font-size: 13px; }
+    .bar-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .table-wrap { overflow-x: auto; }
+    table { border-collapse: collapse; width: 100%; min-width: 850px; font-size: 13px; }
+    th, td { text-align: left; border-bottom: 1px solid var(--line); padding: 13px 12px; vertical-align: top; }
+    th { background: #efede7; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+    td input, td select { width: 100%; border: 1px solid transparent; background: transparent; padding: 7px; color: var(--ink); }
+    td input:hover, td input:focus, td select:hover, td select:focus { border-color: var(--line); background: var(--paper); }
+    .delete { border: 0; background: transparent; color: #9a3823; text-decoration: underline; font-size: 12px; }
+    .empty { padding: 55px 24px; text-align: center; color: var(--muted); }
+    .method { padding: 0 72px 78px; }
+    details { background: #fff; border: 1px solid var(--line); margin-top: 12px; }
+    summary { cursor: pointer; padding: 18px 20px; font-weight: 750; }
+    .detail { border-top: 1px solid var(--line); padding: 20px; color: var(--muted); }
+    .detail ul { margin-bottom: 0; }
+    footer { border-top: 1px solid var(--line); padding: 34px 72px 46px; display: flex; justify-content: space-between; gap: 30px; font-size: 12px; color: var(--muted); }
+    footer strong { color: var(--ink); }
+    .toast { min-height: 18px; margin-top: 10px; color: var(--green); font-size: 12px; }
+    @media (max-width: 820px) {
+      .mast, .hero, .assessment, .principles, .operator-hero, .method { padding-left: 24px; padding-right: 24px; }
+      .tabs { padding-left: 24px; padding-right: 24px; }
+      .hero { grid-template-columns: 1fr; gap: 30px; }
+      .hero-aside { max-width: 360px; }
+      .answer { padding: 28px 24px; grid-template-columns: 1fr; gap: 10px; }
+      .section-head, .operator-hero { display: block; }
+      .section-head p, .operator-hero p { margin-top: 16px; }
+      .result.active { grid-template-columns: 1fr; }
+      .principle-grid { grid-template-columns: 1fr; }
+      .metrics { margin-left: 24px; margin-right: 24px; grid-template-columns: repeat(2,1fr); }
+      .workspace { margin-left: 24px; margin-right: 24px; }
+      footer { padding-left: 24px; padding-right: 24px; display: block; }
+      footer div + div { margin-top: 18px; }
+      .sample-note { display: none; }
+    }
+    @media (max-width: 520px) {
+      .shell { padding-top: 12px; }
+      .paper, .topbar { width: calc(100% - 16px); }
+      .paper { border-radius: 20px 20px 0 0; margin-top: 8px; }
+      .topbar { min-height: 48px; }
+      .menu-mark { width: 40px; height: 40px; }
+      .tabs { overflow-x: auto; }
+      .tab { white-space: nowrap; }
+      .brandline { display: block; }
+      .edition { margin-top: 14px; }
+      .mast { padding-top: 42px; }
+      .hero { padding-top: 44px; }
+      .metrics { grid-template-columns: 1fr; }
+      .q-nav { flex-direction: column-reverse; }
+      .q-nav .btn { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .progress span { transition: none; } }
+    @media print { body { background: #fff; } .shell { padding: 0; } .topbar, .tabs, .q-nav, .bar-actions, .delete { display: none !important; } .paper { width: 100%; margin: 0; border-radius: 0; box-shadow: none; } .view { display: block; } .question { display: block; min-height: 0; margin-bottom: 12px; } .options { display: none; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="shell">
+    <div class="topbar">
+      <a class="back" href="#main"><span class="menu-mark" aria-hidden="true">☰</span><span>Independent concept for Eve</span></a>
+      <div class="sample-note">Built by Sebastian Becerra<br>Public and synthetic inputs only</div>
+    </div>
+    <main id="main" class="paper">
+      <header class="mast">
+        <div class="brandline">
+          <div class="brand"><em>The</em> AI-NATIVE READINESS LAB</div>
+          <div class="edition">Plaintiff firm field guide · 2026</div>
+        </div>
+      </header>
+      <nav class="tabs" aria-label="Lab views" role="tablist">
+        <button class="tab" id="reader-tab" role="tab" aria-selected="true" aria-controls="reader-view">Firm assessment</button>
+        <button class="tab" id="operator-tab" role="tab" aria-selected="false" aria-controls="operator-view">AEO measurement</button>
+        <button class="tab" id="method-tab" role="tab" aria-selected="false" aria-controls="method-view">Sources & method</button>
+      </nav>
+
+      <section id="reader-view" class="view active" role="tabpanel" aria-labelledby="reader-tab">
+        <div class="hero">
+          <div>
+            <span class="kicker">AI & plaintiff law</span>
+            <h1>Is your firm ready to go AI-native?</h1>
+            <p class="dek">Eight practical questions. One honest starting point. No client or case information required.</p>
+          </div>
+          <aside class="hero-aside">
+            <strong>5 minutes.</strong>
+            <p>This private browser check looks at workflow, responsibility, information handling, review and measurement.</p>
+          </aside>
+        </div>
+        <div class="answer">
+          <div class="answer-label">Short answer</div>
+          <p>An AI-ready plaintiff firm has a defined workflow, approved information boundaries, accountable human review, trained owners and a baseline for measuring the result. Buying a tool is not the same as changing how work gets done.</p>
+        </div>
+
+        <section class="assessment" aria-labelledby="assessment-title">
+          <div class="section-head">
+            <div><span class="kicker">Readiness check</span><h2 id="assessment-title" style="margin-top:16px">Start where the work happens.</h2></div>
+            <p>This is a planning aid, not legal advice or a compliance determination. Firm leaders should apply the professional rules and requirements that govern their jurisdiction and matters.</p>
+          </div>
+          <div class="progress" aria-label="Assessment progress"><span id="progress-bar"></span></div>
+          <div id="question-stage"></div>
+          <div id="result" class="result" aria-live="polite"></div>
+        </section>
+
+        <section class="principles" aria-labelledby="principles-title">
+          <span class="kicker">Answer-first field guide</span>
+          <h2 id="principles-title" style="margin-top:16px">Four conditions for responsible adoption.</h2>
+          <div class="principle-grid">
+            <article class="principle"><span class="num">01 · PURPOSE</span><h3>Choose a workflow, not a novelty.</h3><p>Define where AI enters the case lifecycle, what better work looks like and who owns the result. A successful pilot changes a repeatable process instead of adding an isolated shortcut.</p><a href="https://www.eve.legal/tort-report/what-is-an-ai-native-law-firm" target="_blank" rel="noopener noreferrer">Eve: What is an AI-native law firm? ↗</a></article>
+            <article class="principle"><span class="num">02 · BOUNDARIES</span><h3>Know what information can enter the system.</h3><p>Review vendor terms, access controls, retention and training behavior before introducing client information. Confidentiality duties continue to apply when a generative AI tool is used.</p><a href="https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf" target="_blank" rel="noopener noreferrer">ABA Formal Opinion 512 ↗</a></article>
+            <article class="principle"><span class="num">03 · REVIEW</span><h3>Keep professional judgment in the loop.</h3><p>Assign a qualified person to verify output before it shapes advice, a filing, a communication or another material decision. The reviewer remains responsible for the work.</p><a href="https://www.americanbar.org/news/abanews/aba-news-archives/2024/07/aba-issues-first-ethics-guidance-ai-tools/" target="_blank" rel="noopener noreferrer">ABA ethics guidance summary ↗</a></article>
+            <article class="principle"><span class="num">04 · MEASUREMENT</span><h3>Measure quality with speed.</h3><p>Record a baseline, review errors and exceptions, and track whether the workflow improves the outcome that justified the change. NIST organizes AI risk work around governing, mapping, measuring and managing.</p><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI Risk Management Framework ↗</a></article>
+          </div>
+        </section>
+      </section>
+
+      <section id="operator-view" class="view" role="tabpanel" aria-labelledby="operator-tab">
+        <div class="operator-hero">
+          <div><span class="kicker">Operator workspace</span><h2 style="margin-top:16px">Track answers, not assumptions.</h2></div>
+          <p>A local prompt register for repeatable AEO sampling. Record what an answer engine said, whether it mentioned Eve, and whether it cited an Eve page. Nothing leaves this browser.</p>
+        </div>
+        <div class="metrics" aria-label="AEO metrics">
+          <div class="metric"><small>Prompt runs</small><strong id="metric-runs">0</strong></div>
+          <div class="metric"><small>Eve mention rate</small><strong id="metric-mentions">0%</strong></div>
+          <div class="metric"><small>Eve citation rate</small><strong id="metric-citations">0%</strong></div>
+          <div class="metric"><small>Engines covered</small><strong id="metric-engines">0</strong></div>
+        </div>
+        <div class="workspace">
+          <div class="workspace-bar">
+            <p><strong>Prompt register.</strong> Use the same prompt set, engine mode, date and market on each run.</p>
+            <div class="bar-actions">
+              <button class="btn secondary" id="load-demo">Load synthetic demo</button>
+              <button class="btn secondary" id="add-row">Add run</button>
+              <button class="btn" id="export-csv">Export CSV</button>
+            </div>
+          </div>
+          <div class="table-wrap"><table aria-label="Answer-engine prompt register"><thead><tr><th>Date</th><th>Engine</th><th>Prompt</th><th>Eve mentioned</th><th>eve.legal cited</th><th>Observed URL</th><th></th></tr></thead><tbody id="measurement-rows"></tbody></table></div>
+          <div id="empty-state" class="empty">No observations yet. Add a real run or load clearly labeled synthetic rows to test the workspace.</div>
+        </div>
+        <section class="method">
+          <details open><summary>Metric definitions</summary><div class="detail"><ul><li><strong>Mention rate:</strong> prompt runs where the answer explicitly names Eve, divided by all runs.</li><li><strong>Citation rate:</strong> prompt runs linking to an eve.legal URL, divided by all runs.</li><li><strong>Engine coverage:</strong> unique answer engines represented in the selected sample.</li></ul><p>These are visibility diagnostics. They do not establish lead quality, attribution or revenue.</p></div></details>
+          <details><summary>A repeatable sampling protocol</summary><div class="detail"><ol><li>Freeze a buyer-centered prompt set by intent and practice area.</li><li>Record logged-in state, location, engine mode and date.</li><li>Run the same prompts on a scheduled cadence without conversational carryover.</li><li>Capture mentions, cited domains, cited URLs and answer position.</li><li>Review changes against content releases and external events. Do not infer causation from one sample.</li></ol></div></details>
+        </section>
+      </section>
+
+      <section id="method-view" class="view" role="tabpanel" aria-labelledby="method-tab">
+        <div class="operator-hero">
+          <div><span class="kicker">Sources & limits</span><h2 style="margin-top:16px">Inspectable by design.</h2></div>
+          <p>The public-facing assessment and internal measurement workspace are separated so the reader gets a useful answer while the operator gets a repeatable control.</p>
+        </div>
+        <section class="method">
+          <details open><summary>What is implemented</summary><div class="detail"><p>The assessment scores eight explicit answers and returns a staged next-step plan. The measurement workspace supports local data entry, computed visibility metrics, synthetic demonstration records and CSV export. Data is stored only in local browser storage.</p></div></details>
+          <details><summary>What is not claimed</summary><div class="detail"><p>This concept does not represent Eve, provide legal advice, audit a law firm, collect case information or claim measured AI visibility. Synthetic rows are labeled and excluded from any external performance claim. A real launch would require Eve editorial, legal, security, product and analytics review.</p></div></details>
+          <details><summary>Source register</summary><div class="detail"><ul><li><a href="https://www.eve.legal/tort-report/what-is-an-ai-native-law-firm" target="_blank" rel="noopener noreferrer">Eve, What Is an AI-Native Law Firm?</a> Used for audience, operating-model framing and firm-readiness context.</li><li><a href="https://www.eve.legal/webinars/how-duffy-and-duffy-went-ai-native-in-4-steps" target="_blank" rel="noopener noreferrer">Eve, How Duffy & Duffy went AI-native in 4 steps</a> Used for adoption, policy and vendor-review context.</li><li><a href="https://www.americanbar.org/content/dam/aba/administrative/professional_responsibility/ethics-opinions/aba-formal-opinion-512.pdf" target="_blank" rel="noopener noreferrer">ABA Formal Opinion 512</a> Used for competence, confidentiality, communication and review considerations.</li><li><a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener noreferrer">NIST AI Risk Management Framework</a> Used for the govern, map, measure and manage framing.</li></ul><p>Sources reviewed September 14, 2026. Requirements and product details can change. Recheck before publication.</p></div></details>
+          <details><summary>Search and structured-data handoff</summary><div class="detail"><p>The page provides the short answer in visible HTML, uses descriptive headings and source links, and includes WebApplication JSON-LD that matches the visible concept. It does not invent FAQ rich-result eligibility or use product markup without product data. A production version would need an Eve canonical URL, internal links from relevant AI-native resources, indexability review, Search Console validation and event instrumentation for starts, completions, result stage, source clicks and qualified next actions.</p></div></details>
+        </section>
+      </section>
+
+      <footer><div><strong>AI-Native Readiness Lab</strong><br>Independent working concept by Sebastian Becerra.</div><div>Public and synthetic inputs only.<br>No affiliation, tracking or data collection.</div></footer>
+    </main>
+  </div>
+  <script>
+    const QUESTIONS = [
+      {category:'Workflow', text:'How many stages of your case lifecycle use AI as a standard step?', options:[['None or ad hoc',0],['One or two defined stages',1],['Three or more connected stages',2]]},
+      {category:'Purpose', text:'Is there a named business or client outcome for the first AI workflow?', options:[['No, the goal is general adoption',0],['The use case is named, but the baseline is not',1],['The outcome, owner and baseline are documented',2]]},
+      {category:'Information', text:'Has the firm approved what information may enter each AI system?', options:[['No documented boundary',0],['Informal rules or partial review',1],['Written boundary based on vendor and professional review',2]]},
+      {category:'Verification', text:'Who verifies AI-assisted work before it affects a client matter?', options:[['No consistent reviewer',0],['Review depends on the task or person',1],['A qualified accountable reviewer is assigned',2]]},
+      {category:'Communication', text:'Has the firm identified when AI use may require client communication or consent?', options:[['Not assessed',0],['Discussed but not operationalized',1],['Requirements are documented by use case',2]]},
+      {category:'People', text:'Can team members explain the tool’s limits and escalation path?', options:[['No shared training',0],['Basic training without a tested escalation path',1],['Role-based training and escalation are in place',2]]},
+      {category:'Operations', text:'Does the workflow preserve a reviewable record of inputs, outputs and approvals?', options:[['No',0],['For some matters or tools',1],['Yes, with access and retention controls',2]]},
+      {category:'Measurement', text:'Can the firm compare quality, cycle time and exceptions before and after adoption?', options:[['No baseline',0],['Some activity metrics',1],['Baseline, quality checks and outcome measures',2]]}
+    ];
+    const stage = document.getElementById('question-stage');
+    const answers = Array(QUESTIONS.length).fill(null);
+    let current = 0;
+    function renderQuestion(){
+      const q = QUESTIONS[current];
+      stage.innerHTML = `<section class="question active" aria-labelledby="q-title"><div class="q-meta"><span>${q.category}</span><span>${current+1} of ${QUESTIONS.length}</span></div><h3 id="q-title">${q.text}</h3><div class="options">${q.options.map((o,i)=>`<button class="option ${answers[current]===o[1]?'selected':''}" data-score="${o[1]}"><span class="option-index">${String.fromCharCode(65+i)}</span><span>${o[0]}</span></button>`).join('')}</div><div class="q-nav"><button class="btn secondary" id="back" ${current===0?'disabled':''}>Back</button><button class="btn" id="next" ${answers[current]===null?'disabled':''}>${current===QUESTIONS.length-1?'See result':'Next'}</button></div></section>`;
+      document.getElementById('progress-bar').style.width = `${(current/QUESTIONS.length)*100}%`;
+      stage.querySelectorAll('.option').forEach(b=>b.addEventListener('click',()=>{answers[current]=Number(b.dataset.score);renderQuestion()}));
+      document.getElementById('back').addEventListener('click',()=>{if(current>0){current--;renderQuestion()}});
+      document.getElementById('next').addEventListener('click',()=>{if(current<QUESTIONS.length-1){current++;renderQuestion()}else{renderResult()}});
+    }
+    function renderResult(){
+      const score=answers.reduce((a,b)=>a+(b||0),0), max=QUESTIONS.length*2;
+      const level=score<=5?{name:'Explore',copy:'Start with one bounded workflow and establish the information and review rules before expanding.',steps:['Name one repeatable workflow and its owner.','Review vendor terms and approved information boundaries.','Define qualified human review before a live matter.']}:score<=11?{name:'Pilot',copy:'The foundation is forming. Close the weakest control, then run a measured pilot with a fixed workflow and review owner.',steps:['Resolve the lowest-scoring readiness category.','Capture a baseline for quality, time and exceptions.','Run a bounded pilot and document every escalation.']}:{name:'Scale',copy:'Core controls are present. The next step is connecting workflows while preserving review, governance and measurement.',steps:['Connect adjacent case-lifecycle stages deliberately.','Audit exceptions and adoption by role.','Review controls and outcome measures on a fixed cadence.']};
+      document.getElementById('progress-bar').style.width='100%'; stage.innerHTML='';
+      const result=document.getElementById('result'); result.classList.add('active'); result.style.setProperty('--score-angle',`${score/max*360}deg`);
+      result.innerHTML=`<div class="score-ring"><strong>${score}/${max}</strong></div><div class="result-copy"><span class="kicker">Readiness stage</span><h3 style="margin-top:14px">${level.name}</h3><p>${level.copy}</p><ul class="next-steps">${level.steps.map(s=>`<li>${s}</li>`).join('')}</ul><button class="btn secondary" id="restart">Restart assessment</button></div>`;
+      document.getElementById('restart').addEventListener('click',()=>{answers.fill(null);current=0;result.classList.remove('active');renderQuestion()});
+    }
+    renderQuestion();
+
+    const tabs=[['reader','reader-tab','reader-view'],['operator','operator-tab','operator-view'],['method','method-tab','method-view']];
+    tabs.forEach(([name,tabId,viewId])=>document.getElementById(tabId).addEventListener('click',()=>{tabs.forEach(([,t,v])=>{document.getElementById(t).setAttribute('aria-selected',String(t===tabId));document.getElementById(v).classList.toggle('active',v===viewId)}); if(name==='operator')renderRows()}));
+
+    const DEMO = [
+      {date:'2026-09-14',engine:'ChatGPT',prompt:'Best AI software for plaintiff law firms',mention:'Yes',citation:'No',url:'Synthetic example'},
+      {date:'2026-09-14',engine:'Perplexity',prompt:'How can a plaintiff firm use AI responsibly?',mention:'Yes',citation:'Yes',url:'https://www.eve.legal/ai-native-law-firms'},
+      {date:'2026-09-14',engine:'Google AI Overview',prompt:'AI medical chronology software for personal injury firms',mention:'No',citation:'No',url:'Synthetic example'},
+      {date:'2026-09-14',engine:'Claude',prompt:'What makes a law firm AI-native?',mention:'Yes',citation:'Yes',url:'https://www.eve.legal/tort-report/what-is-an-ai-native-law-firm'}
+    ];
+    let rows=[];
+    try { rows=JSON.parse(localStorage.getItem('eve-aeo-runs')||'[]'); } catch { rows=[]; }
+    const save=()=>localStorage.setItem('eve-aeo-runs',JSON.stringify(rows));
+    function metrics(){
+      const n=rows.length, mentions=rows.filter(r=>r.mention==='Yes').length, citations=rows.filter(r=>r.citation==='Yes').length;
+      document.getElementById('metric-runs').textContent=n;
+      document.getElementById('metric-mentions').textContent=n?Math.round(mentions/n*100)+'%':'0%';
+      document.getElementById('metric-citations').textContent=n?Math.round(citations/n*100)+'%':'0%';
+      document.getElementById('metric-engines').textContent=new Set(rows.map(r=>r.engine).filter(Boolean)).size;
+    }
+    function renderRows(){
+      const body=document.getElementById('measurement-rows'), empty=document.getElementById('empty-state'); body.innerHTML=''; empty.hidden=rows.length>0;
+      rows.forEach((r,i)=>{const tr=document.createElement('tr');tr.innerHTML=`<td><input aria-label="Date" type="date" value="${r.date||''}"></td><td><select aria-label="Engine">${['ChatGPT','Perplexity','Google AI Overview','Claude','Gemini','Other'].map(v=>`<option ${r.engine===v?'selected':''}>${v}</option>`).join('')}</select></td><td><input aria-label="Prompt" value="${escapeHtml(r.prompt||'')}"></td><td><select aria-label="Eve mentioned"><option ${r.mention==='No'?'selected':''}>No</option><option ${r.mention==='Yes'?'selected':''}>Yes</option></select></td><td><select aria-label="Eve cited"><option ${r.citation==='No'?'selected':''}>No</option><option ${r.citation==='Yes'?'selected':''}>Yes</option></select></td><td><input aria-label="Observed URL" value="${escapeHtml(r.url||'')}"></td><td><button class="delete" aria-label="Delete row">Delete</button></td>`;
+        const fields=tr.querySelectorAll('input,select'); const keys=['date','engine','prompt','mention','citation','url']; fields.forEach((f,j)=>f.addEventListener('change',()=>{rows[i][keys[j]]=f.value;save();metrics()})); tr.querySelector('.delete').addEventListener('click',()=>{rows.splice(i,1);save();renderRows()}); body.append(tr)}); metrics();
+    }
+    function escapeHtml(v){return String(v).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+    document.getElementById('add-row').addEventListener('click',()=>{rows.push({date:new Date().toISOString().slice(0,10),engine:'ChatGPT',prompt:'',mention:'No',citation:'No',url:''});save();renderRows()});
+    document.getElementById('load-demo').addEventListener('click',()=>{if(rows.length&&!confirm('Replace current local rows with four synthetic demonstration rows?'))return;rows=DEMO.map(x=>({...x}));save();renderRows()});
+    document.getElementById('export-csv').addEventListener('click',()=>{const head=['date','engine','prompt','eve_mentioned','eve_cited','observed_url']; const csv=[head.join(','),...rows.map(r=>[r.date,r.engine,r.prompt,r.mention,r.citation,r.url].map(v=>'"'+String(v||'').replace(/"/g,'""')+'"').join(','))].join('\n'); const blob=new Blob([csv],{type:'text/csv'}),u=URL.createObjectURL(blob),a=document.createElement('a');a.href=u;a.download='eve-aeo-prompt-register.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)});
+    renderRows();
+  </script>
+</body>
+</html>
