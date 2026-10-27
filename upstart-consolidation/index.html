@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An independent, interactive work sample by Sebastian Becerra: compare the cash available after an upfront fee with monthly and total loan payments.">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="color-scheme" content="light">
+  <title>Before you consolidate · Sebastian Becerra</title>
+  <link rel="preload" href="assets/Figtree-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#comparison">Skip to comparison</a>
+  <header class="site-header shell">
+    <a class="site-title" href="#" aria-label="Consolidation comparison, top of page"><span class="identity-mark" aria-hidden="true"></span>Consolidation, considered.</a>
+    <a class="review-link" href="#reviewer">Independent work sample <span aria-hidden="true">↗</span></a>
+  </header>
+  <main>
+    <section class="hero shell" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <h1 id="page-title">Before you consolidate,<br> see what gets <span>paid off.</span></h1>
+        <p class="hero-description">A loan amount and the money you receive can be different. See what an upfront fee leaves for your debt, then compare monthly payments with the full repayment cost.</p>
+      </div>
+      <div class="hero-aside"><span class="aside-rule"></span><p>A lower payment is<br>only part of the picture.</p><a href="#how-it-works">See how this works <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></a></div>
+    </section>
+
+    <section class="comparison-wrap" id="comparison" aria-labelledby="comparison-title">
+      <div class="shell">
+        <div class="need-row">
+          <div><h2>What balance do you want to pay off?</h2><p>Use the current payoff amount for the debt you’re comparing.</p></div>
+          <div class="need-control">
+            <label for="need">Debt payoff amount</label>
+            <div class="currency-input large-input"><span aria-hidden="true">$</span><input id="need" name="need" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" value="10000" aria-describedby="need-error privacy-note"></div>
+            <p id="need-error" class="field-error" hidden></p>
+          </div>
+        </div>
+        <p id="privacy-note" class="privacy-note"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="10" width="12" height="10" rx="2"/><path d="M9 10V7a3 3 0 0 1 6 0v3"/></svg>Your entries stay on this page and clear when you reload.</p>
+
+        <div class="comparison-heading">
+          <div><h2 id="comparison-title">Two examples. A clearer tradeoff.</h2><p>Fictional examples for learning. These are not loan offers or a credit decision.</p></div>
+          <button id="reset" class="text-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10a8 8 0 1 1 1 7M4 4v6h6"/></svg>Reset examples</button>
+        </div>
+
+        <p id="comparison-scroll-hint" class="scroll-hint" hidden>Scroll sideways to see both examples at full precision.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Compare the two illustrative loan examples">
+          <table class="comparison-table">
+            <caption class="sr-only">Illustrative loan comparison. Edit example details below this table.</caption>
+            <colgroup><col class="label-column"><col><col></colgroup>
+            <thead><tr><td></td><th scope="col"><div class="example-heading"><span>Example A</span><button class="edit-link" type="button" data-edit="a" aria-controls="example-editor">Edit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15z"/></svg></button></div><span class="example-term" data-output="a.termLabel">36 monthly payments</span></th><th scope="col"><div class="example-heading"><span>Example B</span><button class="edit-link" type="button" data-edit="b" aria-controls="example-editor">Edit <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15z"/></svg></button></div><span class="example-term" data-output="b.termLabel">60 monthly payments</span></th></tr></thead>
+            <tbody id="comparison-rows">
+              <tr data-row="principal"><th scope="row">Amount borrowed</th><td data-output="a.principal">$10,000.00</td><td data-output="b.principal">$10,000.00</td></tr>
+              <tr data-row="fee"><th scope="row">Upfront fee deducted<span class="row-explainer">Taken from the loan before funds are sent</span></th><td data-output="a.fee">− $815.00</td><td data-output="b.fee">− $500.00</td></tr>
+              <tr class="net-row" data-row="net"><th scope="row">Money available for your debt<span class="row-explainer">Amount borrowed minus the upfront fee</span></th><td><strong data-output="a.net">$9,185.00</strong><div class="coverage-track" aria-hidden="true"><span id="a-coverage"></span></div></td><td><strong data-output="b.net">$9,500.00</strong><div class="coverage-track" aria-hidden="true"><span id="b-coverage"></span></div></td></tr>
+              <tr class="balance-row" data-row="balance"><th scope="row" id="balance-label">Compared with your payoff amount</th><td><strong class="balance-value" data-output="a.balance">$815.00 left unpaid</strong><span class="row-explainer" data-output="a.balanceNote">The example does not cover the full balance.</span></td><td><strong class="balance-value" data-output="b.balance">$500.00 left unpaid</strong><span class="row-explainer" data-output="b.balanceNote">The example does not cover the full balance.</span></td></tr>
+              <tr data-row="monthly"><th scope="row">Monthly payment<span class="row-explainer">For this loan only; remaining debt is separate</span></th><td data-output="a.monthly">$335.00</td><td data-output="b.monthly">$245.00</td></tr>
+              <tr data-row="count"><th scope="row">Number of monthly payments</th><td data-output="a.count">36</td><td data-output="b.count">60</td></tr>
+              <tr class="total-row" data-row="total"><th scope="row">Total of scheduled payments<span class="row-explainer">Monthly payment × number of payments</span></th><td data-output="a.total">$12,060.00</td><td data-output="b.total">$14,700.00</td></tr>
+              <tr class="cost-row" data-row="cost"><th scope="row">Cost above the money received<span class="row-explainer">Total payments minus money received; includes the fee</span></th><td data-output="a.cost">$2,875.00</td><td data-output="b.cost">$5,200.00</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="takeaway" id="takeaway"><span class="takeaway-mark" aria-hidden="true">=</span><p id="takeaway-text">Example B is $90.00 less per month, but has 24 more payments and costs $2,640.00 more in total scheduled payments.</p></div>
+        <div class="comparison-actions"><button id="print" class="primary-button" type="button">Print this comparison <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 8V3h10v5M7 16H4V9h16v7h-3M7 13h10v8H7z"/><path d="M17 11h.01"/></svg></button><p>No recommendation is made. Compare the full terms and your budget before deciding.</p></div>
+        <p class="calculation-note">This comparison assumes equal monthly payments made on time, with no early payoff or additional fees. Costs on any remaining debt are not included. It does not calculate APR, assess affordability, or apply for credit.</p>
+
+        <details id="example-editor" class="example-editor">
+          <summary><span>Edit the example details</span><span class="summary-sub">Use the figures disclosed in the payment terms</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5"/></svg></summary>
+          <div class="editor-intro"><p>Enter the upfront fee in dollars and the stated monthly payment. The fee is subtracted once from the loan amount; it is not added again to scheduled payments.</p></div>
+          <div class="editor-grid">
+            <fieldset id="fields-a"><legend>Example A</legend>
+              <div class="field"><label for="a-principal">Amount borrowed</label><div class="currency-input"><span aria-hidden="true">$</span><input id="a-principal" data-example="a" data-field="principal" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" value="10000" aria-describedby="a-principal-error"></div><p id="a-principal-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="a-fee">Upfront fee deducted</label><div class="currency-input"><span aria-hidden="true">$</span><input id="a-fee" data-example="a" data-field="fee" type="number" inputmode="decimal" min="0" max="1000000" step="0.01" value="815" aria-describedby="a-fee-error"></div><p id="a-fee-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="a-monthly">Stated monthly payment</label><div class="currency-input"><span aria-hidden="true">$</span><input id="a-monthly" data-example="a" data-field="monthly" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" value="335" aria-describedby="a-monthly-error"></div><p id="a-monthly-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="a-count">Number of monthly payments</label><input id="a-count" data-example="a" data-field="count" type="number" inputmode="numeric" min="1" max="600" step="1" value="36" aria-describedby="a-count-error"><p id="a-count-error" class="field-error" hidden></p></div>
+            </fieldset>
+            <fieldset id="fields-b"><legend>Example B</legend>
+              <div class="field"><label for="b-principal">Amount borrowed</label><div class="currency-input"><span aria-hidden="true">$</span><input id="b-principal" data-example="b" data-field="principal" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" value="10000" aria-describedby="b-principal-error"></div><p id="b-principal-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="b-fee">Upfront fee deducted</label><div class="currency-input"><span aria-hidden="true">$</span><input id="b-fee" data-example="b" data-field="fee" type="number" inputmode="decimal" min="0" max="1000000" step="0.01" value="500" aria-describedby="b-fee-error"></div><p id="b-fee-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="b-monthly">Stated monthly payment</label><div class="currency-input"><span aria-hidden="true">$</span><input id="b-monthly" data-example="b" data-field="monthly" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01" value="245" aria-describedby="b-monthly-error"></div><p id="b-monthly-error" class="field-error" hidden></p></div>
+              <div class="field"><label for="b-count">Number of monthly payments</label><input id="b-count" data-example="b" data-field="count" type="number" inputmode="numeric" min="1" max="600" step="1" value="60" aria-describedby="b-count-error"><p id="b-count-error" class="field-error" hidden></p></div>
+            </fieldset>
+          </div>
+        </details>
+        <p id="live-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      </div>
+    </section>
+
+    <section class="how-section shell" id="how-it-works" aria-labelledby="how-title">
+      <div class="how-intro"><h2 id="how-title">Three numbers.<br><span>One more informed decision.</span></h2><p>The monthly payment matters. So does having enough to pay off your debt—and knowing how long you’ll be paying.</p></div>
+      <ol class="how-list">
+        <li><span class="step-number">01</span><div><h3>Look at the money you receive</h3><p>An upfront fee may come out before funds are sent. A $10,000 loan with an $815 deducted fee leaves $9,185 to use.</p></div></li>
+        <li><span class="step-number">02</span><div><h3>Check what remains unpaid</h3><p>Compare that available cash with your current payoff balance. A gap remains debt you would still need to address.</p></div></li>
+        <li><span class="step-number">03</span><div><h3>Read monthly and total payments together</h3><p>More payments can mean a smaller monthly amount and a larger total. Neither number alone tells the full story.</p></div></li>
+      </ol>
+    </section>
+
+    <section class="reviewer-section" id="reviewer" aria-labelledby="reviewer-title"><div class="shell">
+      <details id="reviewer-details"><summary><div><span class="reviewer-kicker">Behind this work sample</span><h2 id="reviewer-title">The hypothesis, sources, and production decisions.</h2></div><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="reviewer-content">
+          <div><h3>Why this experience</h3><p>Upstart’s personal-loan page includes a monthly-payment calculator and explains deducted origination fees separately. This independent concept brings the cash available, payoff gap, and scheduled repayment tradeoff into one pre-application learning experience.</p><p><strong>Hypothesis:</strong> clearer net-proceeds information could improve borrower comprehension and the quality of a later application decision. No conversion lift, customer demand, or ROI has been measured.</p><p>This is marketing-site work, not a redesign of Upstart’s authenticated offer or underwriting experience. It has no affiliation with or endorsement by Upstart.</p></div>
+          <div><h3>What a useful test would measure</h3><p>First test whether participants can correctly identify the money received, remaining debt, and payment tradeoff. Only then consider an approved experiment measuring informed continuation and completed applications, with confusion and abandonment as guardrails.</p><p>Variant A leads with the net proceeds. Variant B leads with scheduled monthly and total payments. All calculations and disclosures remain the same. There is no automatic assignment or live experiment.</p><div class="variant-links"><a href="?variant=a#comparison" id="variant-a">View variant A</a><a href="?variant=b#comparison" id="variant-b">View variant B</a></div></div>
+          <div><h3>Sources and limits</h3><ul class="source-list"><li><a href="https://www.upstart.com/personal-loans" target="_blank" rel="noopener noreferrer">Upstart: personal loans, calculator, fees, and representative example</a></li><li><a href="https://www.upstart.com/learn/what-is-personal-loan-origination-fee/" target="_blank" rel="noopener noreferrer">Upstart: origination-fee education</a></li><li><a href="https://www.linkedin.com/posts/upstart-network_were-proud-to-introduce-the-next-evolution-activity-7441944078386196480-NY3L" target="_blank" rel="noopener noreferrer">Upstart: public brand-evolution statement</a></li><li><a href="https://github.com/google/fonts/blob/main/ofl/figtree/OFL.txt" target="_blank" rel="noopener noreferrer">Figtree: SIL Open Font License</a></li></ul><p>Reviewed October 2026. Product pages are company marketing sources, not independent evidence of customer confusion. The $10,000 − $815 = $9,185 illustration comes from the public example; the two editable scenarios are fictional and are not quotes or available offers.</p></div>
+          <div><h3>Authorship and AI use</h3><p>Sebastian Becerra selected the problem and approved the brief. Codex assisted with research, implementation, and testing under his direction. Customer and business impact have not been measured.</p><p>Figtree is served locally with its license. The palette and visual hierarchy respond to Upstart’s public site; no proprietary font, photography, logo, or source code is reused.</p><h3>Local measurement demonstration</h3><p>Events below exist only in memory, record action names rather than financial values, and disappear on reload. No analytics requests or storage are used.</p><div class="event-toolbar"><span id="event-count">0 local events</span><button type="button" class="text-button" id="clear-events">Clear events</button></div><ol id="event-log" class="event-log" aria-label="Local interaction event log"></ol></div>
+        </div>
+      </details>
+    </div></section>
+  </main>
+  <footer class="site-footer shell"><span>Independent concept by Sebastian Becerra</span><a href="../">Back to portfolio <span aria-hidden="true">↗</span></a></footer>
+  <noscript><p class="noscript-note">JavaScript is required to change this comparison. The values shown above are fixed fictional examples.</p></noscript>
+</body>
+</html>
