@@ -13,7 +13,7 @@ h1,h2{letter-spacing:-.038em;line-height:1.1}
 h2{font-size:52px}
 button,a,summary{-webkit-tap-highlight-color:transparent}
 a:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:5px}
-.hero a:focus-visible{outline-color:#fff}
+.hero a:focus-visible,.prototype-note a:focus-visible{outline-color:#fff}
 .skip-link{position:fixed;left:16px;top:8px;transform:translateY(-160%);background:var(--paper);padding:12px 18px;z-index:20;font-weight:700}
 .skip-link:focus{transform:translateY(0)}
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
