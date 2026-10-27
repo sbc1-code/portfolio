@@ -1,6 +1,6 @@
 # Samsara refrigerated-load evaluation prototype
 
-Independent portfolio sample by Sebastian Becerra. Working review version, October 27, 2026 UTC. Not an official Samsara page or a product change.
+Independent portfolio sample by Sebastian Becerra. Reviewed working version, October 27, 2026 UTC. Not an official Samsara page or a product change.
 
 ## Working experience
 
@@ -30,7 +30,7 @@ The current public product page supplies the black/white/neutral/yellow visual s
 
 ## How made and review status
 
-OpenAI Codex and browser tools supported public research, implementation and verification. The implementation uses HTML and CSS, with native browser disclosure semantics and no JavaScript dependency. The exact underlying AI model/version was not verified and is not guessed. Sebastian directed the task; his review of this working version is pending.
+OpenAI Codex and browser tools supported public research, implementation and verification. The implementation uses HTML and CSS, with native browser disclosure semantics and no JavaScript dependency. The exact underlying AI model/version was not verified and is not guessed. Sebastian directed the task and reviewed this working sample on October 26, 2026 (Pacific time). This review status applies to the sample, not the separate application materials.
 
 ## Public bundle boundary
 
