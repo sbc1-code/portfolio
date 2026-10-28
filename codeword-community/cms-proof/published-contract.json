@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "market": {
+    "id": "cedar-county",
+    "name": "Cedar County",
+    "phase": "Project details awaiting confirmation",
+    "updated": "2026-10-27",
+    "summary": "A shared place for project information and community questions.",
+    "construction": "Dates and work hours are unconfirmed. A dated notice is needed before a real update.",
+    "water": "Water source, cooling design and expected use are unverified.",
+    "power": "Power demand, grid connection plans and any effect on local rates are unverified. A dated utility or project explanation is needed.",
+    "jobs": "No openings, hiring targets, training programs or local partnerships have been confirmed. Verified listings or program details are needed before sharing opportunities.",
+    "contact": "Contact details are awaiting confirmation. This demonstration does not send messages or collect inquiries.",
+    "owner": "Community communications — demo role"
+  },
+  "sources": [
+    {
+      "id": "microsoft-datacenter-faq",
+      "title": "Microsoft Local: Frequently asked questions about datacenters",
+      "url": "https://local.microsoft.com/blog/frequently-asked-questions-about-our-datacenters/",
+      "context": "Background example from another organization. Supports topic selection only; it does not verify Cedar County project details or identify a client."
+    },
+    {
+      "id": "aws-community-engagement",
+      "title": "AWS: Community engagement",
+      "url": "https://aws.amazon.com/about-aws/global-infrastructure/community-engagement/",
+      "context": "Background example from another organization. Illustrates community education, skills and local partnership topics; it is not evidence of a Cedar County program or commitment."
+    }
+  ],
+  "resources": [
+    {
+      "id": "construction-questions",
+      "title": "Construction update checklist",
+      "topic": "construction",
+      "summary": "Before sharing a real update, confirm work dates, permitted hours, affected streets, truck routes, expected noise and where residents can find changes.",
+      "sourceIds": [
+        "microsoft-datacenter-faq"
+      ]
+    },
+    {
+      "id": "water-questions",
+      "title": "Water information checklist",
+      "topic": "water",
+      "summary": "Request project-specific documents explaining water demand, the source of supply, cooling design and who reviewed the assessment. Do not transfer another organization's commitments to this project.",
+      "sourceIds": [
+        "microsoft-datacenter-faq"
+      ]
+    },
+    {
+      "id": "power-questions",
+      "title": "Power information checklist",
+      "topic": "power",
+      "summary": "Request a dated explanation of electricity demand, grid connection work, backup equipment and any identified community effects. Energy sources and cost effects remain unverified.",
+      "sourceIds": [
+        "microsoft-datacenter-faq"
+      ]
+    },
+    {
+      "id": "jobs-training-questions",
+      "title": "Jobs and training checklist",
+      "topic": "jobs",
+      "summary": "Confirm the responsible organization, eligibility, timing and application route before sharing any job or training opportunity. No local program is established by these background examples.",
+      "sourceIds": [
+        "microsoft-datacenter-faq",
+        "aws-community-engagement"
+      ]
+    },
+    {
+      "id": "contact-update-questions",
+      "title": "Contact and update checklist",
+      "topic": "contact",
+      "summary": "Confirm an approved contact route, the organization responsible for responding and a dated location for updates. This demonstration provides no inquiry endpoint.",
+      "sourceIds": [
+        "microsoft-datacenter-faq",
+        "aws-community-engagement"
+      ]
+    }
+  ]
+}

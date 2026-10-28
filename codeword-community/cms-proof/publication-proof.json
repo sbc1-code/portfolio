@@ -1,0 +1,46 @@
+{
+  "generated_at": "2026-10-28T02:34:58.364559+00:00",
+  "scope": "Local Wagtail proof only; no server, accounts, external writes, or client material.",
+  "versions": {
+    "python": "3.13.11",
+    "django": "6.1.2",
+    "wagtail": "8.0.1"
+  },
+  "input_sha256": "f0a15ef8ffec76757dbc6833899b6164c3017887583cfe7e99f175b341d2eab1",
+  "page": {
+    "id": 4,
+    "model": "home.CommunityBriefPage",
+    "market_id": "cedar-county"
+  },
+  "revisions": {
+    "original": 1,
+    "changed_draft_then_published": 2,
+    "recovered_as_new_revision": 3
+  },
+  "checks": {
+    "unpublished_draft_does_not_leak": true,
+    "publish_changes_both_outputs": true,
+    "previous_revision_recoverable": true,
+    "revision_history_preserved": true
+  },
+  "http_paths": {
+    "market": "/cedar-county/",
+    "one-pager": "/cedar-county/one-pager/"
+  },
+  "artifact_sha256": {
+    "01-original-published-market.html": "44f8f68449a0f91416e2e5a0d55ee02bedad8cf1743a6ae4f1d49903761218b3",
+    "01-original-published-one-pager.html": "58c8016e83421771b5c79fe5e7880de61f3f5e2a62cdda0ee6b388430f888ffc",
+    "02-draft-isolated-market.html": "44f8f68449a0f91416e2e5a0d55ee02bedad8cf1743a6ae4f1d49903761218b3",
+    "02-draft-isolated-one-pager.html": "58c8016e83421771b5c79fe5e7880de61f3f5e2a62cdda0ee6b388430f888ffc",
+    "03-change-published-market.html": "7270b6f894364c43d49b7acb27fd0865f6511c9a07e9c5ba0f1d7859682c4886",
+    "03-change-published-one-pager.html": "828483d06d3d2a3f12ff96452bc53a1fdcf49343d39e44f698bb7320dcfa4728",
+    "04-original-restored-market.html": "44f8f68449a0f91416e2e5a0d55ee02bedad8cf1743a6ae4f1d49903761218b3",
+    "04-original-restored-one-pager.html": "58c8016e83421771b5c79fe5e7880de61f3f5e2a62cdda0ee6b388430f888ffc"
+  },
+  "limits": [
+    "No Wagtail admin UI was opened or tested.",
+    "No superuser or login credentials were created.",
+    "No public CMS is hosted.",
+    "No device, visual, print pagination, or assistive-technology review is claimed."
+  ]
+}
