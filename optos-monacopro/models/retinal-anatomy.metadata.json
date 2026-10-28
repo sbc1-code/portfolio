@@ -1,0 +1,27 @@
+{
+  "source": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-left/v1.2/assets/3d-vh-m-eye-l.glb",
+  "sourceSha256": "b2dd5cf1315ede628e63be6f29097b42d070b57b844864e013ff5a527d35a7a5",
+  "sourceBytes": 27462180,
+  "output": "retinal-anatomy.glb",
+  "outputSha256": "12d83f53e08f8410ab495ef98e3708812e95ba3183f4c248dfc048eab8c4744c",
+  "outputBytes": 621324,
+  "triangles": 28034,
+  "selectedNodes": [
+    "VH_M_retina_L",
+    "VH_M_optic_choroid_L",
+    "VH_M_macula_lutea_L",
+    "VH_M_optic_disc_L"
+  ],
+  "normalization": {
+    "center": [
+      0.036463054828345776,
+      0.8102326691150665,
+      0.08190571144223213
+    ],
+    "scale": 138.61752654434707,
+    "sourceOpeningAxis": "+Z"
+  },
+  "license": "CC BY 4.0",
+  "sourceCitation": "Kristen Browne; Heidi Schlehlein. 2023. 3D Reference Organ for Eye, Male, Left v1.2. https://doi.org/10.48539/HBM858.KCTG.666",
+  "modifications": "Selected meshes, centered/rescaled, simplified, recomputed smooth normals, removed vertex colors, and added illustrative front-projected UVs."
+}
