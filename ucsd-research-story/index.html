@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="An independent research-story concept by Sebastian Becerra, exploring what depth and time add to understanding UC San Diego's MitoSpace research.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F8F6F0">
+  <title>Mitochondria, in motion. — Sebastian Becerra</title>
+  <link rel="preload" href="./fonts/newsreader-regular.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F8F6F0'/%3E%3Cpath d='M15 38c0-20 34-20 34 0S15 56 15 38Z' fill='none' stroke='%23182B49' stroke-width='4'/%3E%3C/svg%3E">
+  <script type="module" crossorigin src="./assets/index-BiJTEc47.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DAx_i5G-.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the story</a>
+  <header class="portfolio-header page-width">
+    <a class="author-name" href="#story-title">Sebastian Becerra</a>
+    <div class="portfolio-context"><span>Independent web concept</span><a href="#about">Project notes</a></div>
+  </header>
+  <main id="main">
+    <header class="article-masthead page-width">
+      <h1 id="story-title">Mitochondria, <span class="title-tail">in motion.</span></h1>
+      <p class="article-dek">What depth and time add to a research story.</p>
+      <p class="source-credit"><a href="https://today.ucsd.edu/story/virtual-cells-built-from-4d-ai-models-and-digital-twins-could-speed-up-drug-discovery">Based on UC San Diego’s MitoSpace research</a></p>
+    </header>
+    <section class="story-experience page-width" id="illustrated-story" aria-label="An illustrated explanation of space and time">
+      <figure class="experience" aria-labelledby="scene-title" aria-describedby="scene-description illustration-disclaimer">
+        <h2 id="scene-title" class="sr-only">An original illustration of projection, depth and time</h2>
+        <div class="scene-stage" id="scene-stage">
+          <div class="scene-view-label" aria-hidden="true"><span id="view-name">Depth</span><span id="view-dimension">Illustration overview</span></div>
+          <canvas id="cell-canvas" tabindex="0" role="img" aria-label="Original three-dimensional schematic with tracking markers A and B. In depth and time views, drag to rotate, or focus here and use the arrow keys. Reset restores the camera and illustrated time." aria-describedby="scene-description"></canvas>
+          <svg id="tracking-marks" class="tracking-marks" data-ready="false" aria-hidden="true">
+            <g class="track-a"><line id="track-a-line"/><circle id="track-a-dot" r="3"/><text id="track-a-label">A</text></g>
+            <g class="track-b"><line id="track-b-line"/><circle id="track-b-dot" r="3"/><text id="track-b-label">B</text></g>
+          </svg>
+          <div id="static-scene" class="static-scene" hidden></div>
+          <div class="print-scene" aria-hidden="true"></div>
+          <span class="scene-hint" id="scene-hint">Drag to turn · arrow keys when focused</span>
+        </div>
+        <div class="experience-controls">
+          <div class="mode-row"><span id="reading-state">Illustration overview</span><div class="view-actions"><button type="button" id="reset">Reset</button><button id="static-toggle" type="button" aria-pressed="false">2D view</button></div></div>
+          <div class="timeline" id="timeline" hidden>
+            <button type="button" id="play" aria-pressed="false">Play</button>
+            <div class="timeline-range"><label class="sr-only" for="time">Position in the illustrative sequence</label><input id="time" type="range" min="0" max="100" value="25" step="1" aria-valuetext="Earlier in the illustrative sequence"><div class="timeline-ends" aria-hidden="true"><span>Earlier</span><span>Later</span></div></div>
+            <output for="time" id="time-output" class="sr-only">Earlier in the illustrative sequence</output>
+          </div>
+          <p id="scene-description" class="sr-only" aria-live="polite">A and B track two positions in the original schematic. They help explain projection, spatial separation and change over time.</p>
+          <p id="renderer-status" role="status" hidden></p>
+        </div>
+        <figcaption id="illustration-disclaimer">Original schematic — not microscopy or simulation.</figcaption>
+        <noscript><p class="no-script">The interactive illustration needs JavaScript. The explanations below cover the same principle: projection can hide depth, and time records change.</p></noscript>
+      </figure>
+      <div class="story-chapters">
+        <div class="story-intro" id="story-intro">
+          <h2>What can movement tell us?</h2>
+          <p>MitoSpace learns patterns in cell states from mitochondrial shape and movement. Explore the idea, then meet the team behind the research.</p>
+          <p class="contribution">Direction, source-based editing and AI-assisted implementation.</p>
+          <a href="#connect">Meet the research team <span aria-hidden="true">↓</span></a>
+        </div>
+        <section class="story-chapter" data-chapter="flat" aria-labelledby="flat-title">
+          <span class="chapter-number" aria-hidden="true">01</span>
+          <h2 id="flat-title">A flat view can hide separation.</h2>
+          <p>A and B sit at different depths. In this projection, they share the same visible position.</p>
+          <p class="chapter-note">The markers identify two schematic positions. They are not biological measurements.</p>
+          <button type="button" data-mode="flat" aria-pressed="false">Show the projection</button>
+        </section>
+        <section class="story-chapter" data-chapter="depth" aria-labelledby="depth-title">
+          <span class="chapter-number" aria-hidden="true">02</span>
+          <h2 id="depth-title">Depth gives the positions their space.</h2>
+          <p>The same positions separate when depth is restored. A change in viewpoint makes that separation visible.</p>
+          <p class="chapter-note">Three spatial dimensions add information that the flat projection compresses.</p>
+          <button type="button" data-mode="depth" aria-pressed="false">Show spatial depth</button>
+        </section>
+        <section class="story-chapter" data-chapter="motion" aria-labelledby="motion-title">
+          <span class="chapter-number" aria-hidden="true">03</span>
+          <h2 id="motion-title">Time adds change to the picture.</h2>
+          <p>The invented sequence changes positions over time. Follow A and B to see the change while the camera stays still.</p>
+          <p class="chapter-note">Here, the fourth dimension is time. The motion illustrates an information principle, not measured mitochondrial behavior.</p>
+          <button type="button" data-mode="motion" aria-pressed="false">Show the time sequence</button>
+        </section>
+      </div>
+    </section>
+    <section class="research-section reading-width" id="research" aria-labelledby="research-title">
+      <h2 id="research-title">What the studies show</h2>
+      <article class="study">
+        <h3>Learning patterns</h3>
+        <p>MitoSpace learns from mitochondrial shape and movement in three-dimensional microscopy over time. In this study, adding spatial and temporal information improved the learned representations.</p>
+        <p>One demonstrated use was predicting mitochondrial membrane potential, an energy-related measurement.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42721963/">Read the MitoSpace abstract</a>
+      </article>
+      <article class="study">
+        <h3>Modeling physical behavior</h3>
+        <p>A separate project uses a physics-based digital twin to represent selected cellular structures and processes. It models how those parts may move and interact.</p>
+        <p>This is a different approach from MitoSpace’s pattern learning. It is also separate from the illustration on this page.</p>
+        <a href="https://pubmed.ncbi.nlm.nih.gov/42379169/">Read the digital-twin abstract</a>
+      </article>
+      <p class="future-note">Combining the approaches, and their possible role in drug discovery, is future work.</p>
+    </section>
+    <section class="research-cta reading-width" id="connect" aria-labelledby="connect-title">
+      <p class="section-eyebrow">The people behind the work</p>
+      <h2 id="connect-title">Bring a research question.</h2>
+      <p>The 4D CELL Biology Lab at UC San Diego connects microscopy, computer science and biology. Led by Johannes Schoeneberg, the lab works to make four-dimensional cell research more accessible to the wider community.</p>
+      <div class="research-links"><a class="primary-link" href="https://www.schoeneberglab.org/contact" data-outcome="research-contact">Contact the lab <span aria-hidden="true">↗</span></a><a href="https://www.schoeneberglab.org/join-us" data-outcome="trainee-interest">Explore joining the lab <span aria-hidden="true">↗</span></a></div>
+      <p class="route-note">For researchers with related questions and students exploring a rotation or joining the team. The lab maintains its own joining information.</p>
+      <aside class="research-resource" aria-labelledby="explore-title">
+        <h3 id="explore-title">Look closer at the evidence</h3>
+        <p>The MitoSpace Explorer is a technical atlas of cell movies in learned feature space. Its plotted points represent whole movies, not physical positions inside one cell.</p>
+        <div class="research-links"><a href="https://mitospace.ai/" data-outcome="research-evidence">Open the desktop Explorer <span aria-hidden="true">↗</span></a><a href="https://today.ucsd.edu/story/virtual-cells-built-from-4d-ai-models-and-digital-twins-could-speed-up-drug-discovery">Read the university story</a></div>
+        <p class="resource-note">The Explorer needs a window at least 1,024px wide. The university story offers a smaller-screen reading route.</p>
+      </aside>
+    </section>
+    <section class="about reading-width" id="about" aria-labelledby="about-title">
+      <h2 id="about-title">Why I made this</h2>
+      <p>Help prospective research partners and trainees understand the work, check its evidence, and find the right people to contact.</p>
+      <p>This applies the technical-content and web-operations discipline I use at SeeScan to a new research subject.</p>
+      <p class="authorship">Independent concept directed by Sebastian Becerra, with AI-assisted research, design and development.</p>
+      <p class="draft-status">Independent application concept. This is not a UC San Diego publication or an endorsed scientific tool.</p>
+      <div class="about-details">
+        <details id="source-details"><summary>Sources and limits</summary><div class="details-body">
+          <p>Source check: October 28, 2026. The explanations draw on the <a href="https://today.ucsd.edu/story/virtual-cells-built-from-4d-ai-models-and-digital-twins-could-speed-up-drug-discovery">university’s September 17 report</a> and the two paper abstracts. Full experimental methods and independent replication were not reviewed.</p>
+          <ol><li><cite>4D spatiotemporal landscape of mitochondrial phenotypes across cellular states unlocked through representation learning.</cite> Cell, September 2026. <a href="https://doi.org/10.1016/j.cell.2026.08.028">DOI: 10.1016/j.cell.2026.08.028</a>.</li><li><cite>Whole-cell particle-based digital twin simulations from 4D lattice light-sheet microscopy data.</cite> Cell, July 2026. <a href="https://doi.org/10.1016/j.cell.2026.06.010">DOI: 10.1016/j.cell.2026.06.010</a>.</li></ol>
+          <p>The original schematic contains no study data, microscopy, research code, model output, physical units or drug-response predictions. A and B are illustrative tracking positions. Colors distinguish forms; they do not encode measured biological properties. The invented motion is not a reproduction of mitochondrial dynamics.</p>
+          <p>The research findings are not clinical diagnoses. Neither the research nor this sample is presented as a complete biochemical cell or a patient-specific treatment simulator. No scientific peer review of this sample has been performed.</p>
+        </div></details>
+        <details><summary>How it was made</summary><div class="details-body">
+          <p>Sebastian directs the experience and makes release decisions. ChatGPT (Codex) assists research, editorial design and development.</p>
+          <p>The visual uses original browser-rendered geometry with an SVG alternative. No research assets, model weights or patient data are used. The work demonstrates a new application sample and does not imply prior professional scientific-modeling experience.</p>
+          <p>Private generated layout references guided the composition; they are not scientific imagery and are excluded from the website. The page uses locally served open-license Newsreader and Roboto fonts.</p>
+          <p>No analytics, forms, cookies or browser storage are used. Outbound research links lead to independently operated sites.</p>
+          <p>The intended institutional value is more relevant research and trainee inquiries. A production evaluation would compare visits to the lab’s contact and joining pages, then use the lab’s own inquiry records to assess relevance. Link clicks alone are not qualified leads. No conversion improvement has been measured.</p>
+        </div></details>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer page-width"><p>Sebastian Becerra · Independent web concept</p><a href="#story-title">Back to the story</a></footer>
+</body>
+</html>
