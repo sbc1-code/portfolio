@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light">
+  <title>Industrial account review — Sebastian Becerra</title>
+  <link rel="icon" href="data:,"><link rel="stylesheet" href="styles.css">
+  <script defer src="data.js"></script><script defer src="core.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#evidence">Skip to account evidence</a>
+  <header class="masthead"><span class="wordmark">SB <span>/</span> WORK SAMPLES</span><span>Prepared for Fictiv · Independent demonstration</span><a href="README.html">About this sample</a></header>
+  <main>
+    <div class="intro"><div><h1>Industrial account review</h1><p>Turn public manufacturing signals into campaign records a team can inspect and revise.</p></div><span class="edition">RESEARCH SET<br><strong>06 accounts</strong></span></div>
+    <nav class="steps" aria-label="Review workflow"><a href="#accounts"><b>01</b> Select account</a><a href="#evidence"><b>02</b> Inspect evidence</a><a href="#proposal"><b>03</b> Review & export</a></nav>
+    <div class="workspace">
+      <aside id="accounts" aria-label="Accounts"><div class="section-label">ACCOUNTS <span>6</span></div><p class="subtle small">3 relevant · 2 on hold · 1 excluded</p><div id="account-list"></div><div class="legend"><strong>Disposition ≠ buying intent</strong><p>A relevant signal earns further research. It does not qualify an opportunity.</p><p>Holds and exclusions cannot become approved campaign exports.</p></div></aside>
+      <section id="evidence" tabindex="-1"><div class="section-label">SOURCE RECORD <span>CHECKED NOV 05, 2026</span></div><h2 id="company">Eaton / Fibrebond</h2><p id="location" class="location">North Little Rock, Arkansas, USA</p><div id="signal-banner" class="signal-banner"><span class="signal-dot"></span><strong>Relevant signal</strong><span>Capacity expansion</span></div><p id="lead" class="lead">An announced expansion creates a timely research question: are externally sourced custom components part of the program?</p><div id="sources"></div><div class="boundary"><h3>What the evidence does not establish</h3><p id="boundary">Buying intent, external sourcing requirements, an open supplier search or a relationship with Fictiv. Facility completion is not verified.</p></div><details id="provenance"><summary>Saved AI analysis & review history</summary><div id="provenance-content"></div></details></section>
+      <section id="proposal" tabindex="-1"><div class="section-label">CAMPAIGN PROPOSAL <span>EDITABLE</span></div><div class="proposal-heading"><h2>Review the proposal</h2><span id="status" class="status">Pending review</span></div><p class="subtle">Saved AI analysis, prepared Nov 05, 2026. All proposed needs and actions below are hypotheses.</p>
+        <form id="review-form">
+          <label for="hypothesis">Commercial hypothesis <span>proposed, not established</span></label><textarea id="hypothesis" rows="4" maxlength="3000" required></textarea>
+          <label for="segment">Proposed segment</label><input id="segment" maxlength="300" required>
+          <label for="priority">Research priority</label><select id="priority"><option>Research next</option><option>Hold for evidence</option><option>Do not pursue</option></select>
+          <label for="resource">Relevant Fictiv resource <span>source S2</span></label><select id="resource"></select><p class="resource-link"><a id="resource-link" href="https://www.fictiv.com/production" target="_blank" rel="noopener noreferrer">Inspect the public resource ↗</a></p>
+          <label for="resourceReason">Why this resource / fit limits</label><textarea id="resourceReason" rows="3" maxlength="3000" required></textarea>
+          <label for="action">Suggested next action</label><textarea id="action" rows="4" maxlength="3000" required></textarea>
+          <label for="questions">Unresolved questions</label><textarea id="questions" rows="3" maxlength="3000" required></textarea>
+          <fieldset class="review-gate"><legend>Local review</legend><label for="reviewer">Reviewer label <span>self-entered</span></label><input id="reviewer" maxlength="120" placeholder="Your name or review label" autocomplete="off" required><label for="reviewNote">Review note <span>optional</span></label><textarea id="reviewNote" rows="2" maxlength="3000" placeholder="Document a correction or reason for approval."></textarea><label class="check"><input type="checkbox" id="ack"><span>I reviewed the sources and the proposed inferences. This record is ready for an internal research export.</span></label><p id="gate-message" class="gate-message"></p><button type="submit" id="approve" class="primary">Approve for export</button><p class="subtle small">Approval is local to this demo. It does not authorize outreach or an application submission.</p></fieldset>
+        </form>
+        <div class="export-row"><button id="csv" disabled>Download CSV</button><button id="brief" disabled>Download brief</button></div><p class="subtle small">The brief retains sources and review status. Held or excluded accounts can download an evidence brief only. CSV approval never authorizes outreach.</p><div class="save-row"><span id="save-status">Edits stay in this browser</span><button id="reset" class="text-button">Reset account</button></div><p id="notice" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <footer>Prepared by Sebastian Becerra with AI assistance · Public research only · No live generation, CRM connection or message sending</footer>
+  <dialog id="reset-dialog"><form method="dialog"><h2>Reset this account?</h2><p>This removes local edits, review history and approval, then restores the saved AI proposal.</p><div class="export-row"><button value="cancel" autofocus>Keep my edits</button><button value="reset" class="primary">Reset to original</button></div></form></dialog>
+</body></html>
