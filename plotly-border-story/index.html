@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>What truck crossings can tell us about the border | Sebastian Becerra</title>
+  <meta name="description" content="Explore monthly inbound truck crossings at five U.S.–Mexico ports with sourced BTS data, an interactive Plotly chart and downloadable records.">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="vendor/plotly-4.1.1.min.js"></script><script defer src="data.js"></script><script defer src="core.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#explore">Skip to the data explorer</a>
+  <header><span>Sebastian Becerra</span><span>Independent work sample for Plotly</span></header>
+  <main>
+    <section class="intro">
+      <h1>What truck crossings can tell us about the border</h1>
+      <p class="dek">A public-data story shaped by building and operating BorderPulse.</p>
+      <p class="lead">A crossing count answers a specific question: how many trucks entered the United States through a port in a given month? Comparing those counts can reveal differences in volume over time. Explaining what changed requires more evidence.</p>
+    </section>
+    <section id="explore" aria-labelledby="chart-title">
+      <h2 id="chart-title">Compare monthly inbound truck crossings</h2>
+      <form id="filters" novalidate>
+        <label>Port<select id="port" name="port"></select></label>
+        <label>Compare with<select id="compare" name="compare"></select></label>
+        <label>From<select id="from" name="from"></select></label>
+        <label>To<select id="to" name="to"></select></label>
+      </form>
+      <p id="range-error" role="alert" hidden></p>
+      <div id="results">
+        <p id="summary" class="summary" aria-live="polite"></p>
+        <div id="chart" role="img" aria-label="Monthly truck crossing chart. Exact values are available in the data table below."></div>
+        <img id="print-chart" alt="Monthly inbound truck crossings for the selected ports and period. Exact totals and source appear alongside the chart.">
+        <p id="chart-fallback" hidden>The chart could not load. The same records remain available in the table and CSV.</p>
+        <div class="chart-footer"><p>Source: <a href="https://data.bts.gov/Research-and-Statistics/Border-Crossing-Entry-Data/keg4-3bc2">Bureau of Transportation Statistics</a>.<br><span>Monthly entries into the United States. Saved November 6, 2026.</span></p><div class="actions"><button id="reset" class="secondary" type="button">Reset view</button><button id="download" type="button">Download CSV</button></div></div>
+        <p id="download-status" class="coverage" role="status"></p>
+        <p class="coverage">Snapshot coverage: January 2024–September 2026. This page does not refresh automatically.</p>
+        <details id="table-details"><summary>View data table</summary><div class="table-wrap" tabindex="0" role="region" aria-label="Scrollable monthly crossing data"><table><caption id="table-caption"></caption><thead><tr><th scope="col">Month</th><th scope="col">Port</th><th scope="col">Port code</th><th scope="col" class="number">Truck entries</th></tr></thead><tbody id="rows"></tbody></table></div></details>
+      </div>
+      <noscript><p>The interactive explorer requires JavaScript. <a href="data.json">Download the saved source data</a> or open the linked BTS dataset.</p></noscript>
+    </section>
+    <div class="editorial">
+      <section><h2>Read the measure before the trend</h2>
+        <p>In the saved BTS extract, Otay Mesa recorded <strong>990,111 truck entries in 2025</strong>, down 6.6% from 1,059,759 in 2024. That is a change in reported crossings. The counts alone cannot tell us whether cargo value, shipping demand or waiting times changed.</p>
+        <p>For a logistics researcher, that difference is a reason to investigate. The monthly view shows whether the change is concentrated in a few months or spread across the year. The source records let a colleague check the observation before using it in a brief.</p>
+        <p>The selected measure is <strong>Trucks</strong>, not loaded containers, cargo value or unique vehicles. These are inbound counts; they do not describe both directions of travel. Month lengths also differ, and these counts are not adjusted for that difference.</p>
+        <p>Port boundaries matter. El Paso and Ysleta are separate records in this dataset. Combining them without saying so would change the question. Missing observations remain missing; a reported zero stays zero.</p>
+        <p><a href="https://www.bts.gov/explore-topics-and-geography/geography/border-crossingentry-data">Read BTS definitions and coverage</a></p>
+      </section>
+      <section><h2>Built from real product work</h2>
+        <p>I built and operate <a href="https://borderpulse.com/">BorderPulse</a>, a bilingual border-information product using official CBP wait-time data, automated updates and tools for comparing crossings and planning trips.</p>
+        <p>This new example applies that experience to a different source: monthly BTS crossing counts. It is a separate application sample built with Plotly.js, not a feature previously shipped in BorderPulse.</p>
+        <p>My work at SeeScan spans operations across three B2B websites, product and support information, coordinated releases, and GA4/GTM reporting through Analytics HQ. At Los Bravos, I carried an industrial-leasing engagement from research and bilingual content through implementation and handoff.</p>
+        <p>Existing published example: <a href="https://borderpulse.com/blog/2026-10-29-california-road-information-tools/">California border trips: where to look up road conditions</a>.</p>
+      </section>
+    </div>
+    <details class="method"><summary>How this sample was made</summary>
+      <p>Created for Plotly’s content and web team as a reusable editorial example: one focused question, an inspectable chart and source records readers can take with them. No internal Plotly data or commercial performance claims are used.</p>
+      <p>BTS dataset <code>keg4-3bc2</code> was retrieved November 6, 2026. The sample includes 165 port-month records for five ports, January 2024–September 2026. Records were filtered to Trucks and the U.S.–Mexico border, then checked for duplicate port-month keys and nonnegative integer counts. Period totals are sums of displayed records; missing periods do not receive a complete total.</p>
+      <p>Built with Plotly.js 4.1.1. Sebastian chose the concept, reviewed the first working version and directed this refinement. OpenAI Codex assisted with research, copy, implementation and checks. The underlying work experience is Sebastian’s; AI assistance does not imply unaided implementation. There is no live AI generation or claimed Plotly Studio/Dash deployment.</p>
+      <p><a href="data.json">Inspect the saved data and source hash</a> · <a href="https://plotly.com/javascript/line-charts/">Plotly.js line-chart documentation</a></p>
+    </details>
+  </main>
+  <footer>Independent sample. Not a Plotly product. <span>November 6, 2026</span></footer>
+</body>
+</html>
