@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light">
+<title>Render Sandboxes launch brief · Sebastian Becerra</title>
+<style>
+:root{--ink:#211b32;--muted:#59516b;--accent:#49248c;--edge:#dbd4e7;--paper:#fffeff;--wash:#f2edf8;--trace:#251737;--serif:Georgia,serif;--mono:ui-monospace,SFMono-Regular,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:#faf8fc;color:var(--ink);font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,sans-serif}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid #8258c9;outline-offset:4px}
+.shell{max-width:1020px;margin:auto;padding:0 clamp(20px,5vw,60px)}
+header{border-bottom:1px solid var(--edge);background:var(--paper)}
+header .shell{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-top:15px;padding-bottom:15px}
+.kicker,.tag,.eyebrow{font:600 .73rem/1.35 var(--mono);letter-spacing:.07em;text-transform:uppercase}
+.tag{padding:6px 10px;border:1px solid var(--edge);border-radius:100px;color:var(--accent);white-space:nowrap}
+main.shell{padding-top:clamp(24px,5vw,49px);padding-bottom:45px}
+.decision{border-left:4px solid #6f42b6;padding:3px 0 3px 17px;max-width:68ch;margin:0 0 29px}
+.decision p{margin:4px 0 0;font-size:1.02rem}
+.eyebrow{color:var(--accent);margin:0 0 10px}
+.brief{border:1px solid var(--edge);border-radius:18px;background:var(--paper);padding:clamp(20px,4vw,39px)}
+h1,h2,h3,p{margin-top:0}
+h1{font:500 clamp(2.05rem,5.4vw,3.9rem)/1.02 var(--serif);letter-spacing:-.045em;max-width:20ch;margin-bottom:18px}
+.lede{font-size:clamp(1.06rem,2.1vw,1.25rem);color:var(--muted);max-width:65ch;margin-bottom:26px}
+.brief-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.brief-grid article{border-top:1px solid var(--edge);padding-top:13px}
+h2{font:500 clamp(1.65rem,3vw,2.3rem)/1.12 var(--serif);letter-spacing:-.025em;margin-bottom:10px}
+h3{font-size:.99rem;line-height:1.32;margin-bottom:6px}
+.brief-grid p{font-size:.94rem;line-height:1.54;margin-bottom:10px}
+.refs{display:flex;gap:10px;flex-wrap:wrap;font:600 .75rem/1.35 var(--mono)}
+.trace{margin-top:26px;background:var(--trace);color:#fbf4ff;border-radius:18px;padding:clamp(19px,4vw,36px)}
+.trace .eyebrow{color:#d2b8ff}
+.trace p{color:#e5daef;margin-bottom:16px;max-width:70ch}
+.steps{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.steps button{font:600 .86rem system-ui;color:#f5eeff;border:1px solid #806898;background:transparent;border-radius:8px;padding:8px 12px;cursor:pointer}
+.steps button[aria-pressed=true]{background:#eadbff;color:#251737;border-color:#eadbff}
+.trace :focus-visible{outline-color:#e4bfff}
+.frame{padding:14px 16px;border-radius:9px;background:#36254c;min-height:125px}
+.frame h3{font-size:1rem;margin:0 0 4px}
+.frame p{margin:0}
+.frame time{display:block;font:600 .76rem/1.5 var(--mono);color:#d2b8ff;margin-bottom:6px}
+details{margin-top:16px;border:1px solid var(--edge);background:var(--paper);border-radius:12px;padding:13px 17px}
+summary{font-weight:650;cursor:pointer}
+.audit-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:17px 0}
+.audit-grid article{padding:13px;background:var(--wash);border-radius:8px}
+.audit-grid p{margin-bottom:8px}
+.audit-grid p:last-child{margin:0}
+.sources{padding-left:22px}
+.sources li{margin:5px 0}
+.mono{font:600 .79rem/1.6 var(--mono);overflow-wrap:anywhere}
+.footer{font-size:.84rem;color:var(--muted);margin:17px 0 0}
+@media(max-width:660px){.brief-grid,.audit-grid{grid-template-columns:1fr;gap:10px}.decision{margin-bottom:21px}header .kicker{font-size:.66rem}.tag{font-size:.63rem}}
+@media print{body{background:white;color:black}.trace{background:white;color:black;border:1px solid #aaa}.trace p,.trace .eyebrow,.frame time{color:#333}.frame{background:white}.steps{display:none}}
+</style>
+</head>
+<body>
+<header><div class="shell"><span class="kicker">Sebastian Becerra · Content engineering</span><span class="tag">Work sample</span></div></header>
+<main class="shell">
+<section class="decision" aria-labelledby="decision-label">
+<p class="eyebrow" id="decision-label">The decision I owned</p>
+<p>At SeeScan, I caught an internal firmware service listed as public and corrected the shared wiki that people and AI used for context. This trial applies the same rule. Check access in the owning documentation before telling a developer they can ship with a feature.</p>
+</section>
+<section class="brief" aria-labelledby="brief-title">
+<p class="eyebrow">Developer launch brief · November 7, 2026</p>
+<h1 id="brief-title">Shipping an agent with Render Sandboxes</h1>
+<p class="lede">Run your agent’s code in a Render Sandbox and download the finished files before terminating it. Give the editor access to the downloaded copies.</p>
+<div class="brief-grid"><article><h3>What ships today</h3><p>In public beta, your agent can run commands and generated code in a managed, isolated Render Sandbox. You can operate the sandbox through the Render CLI or the TypeScript and Python SDKs.</p><div class="refs"><a href="https://render.com/docs/sandboxes" title="Render Sandboxes overview">S1</a><a href="https://render.com/blog/introducing-render-sandboxes" title="Render Sandboxes launch">S3</a></div></article><article><h3>How the editor keeps access</h3><p>Files persist between commands and while the sandbox is suspended. Termination permanently deletes the sandbox’s filesystem, so download the finished files first and share the copies for the editor to open afterward.</p><div class="refs"><a href="https://render.com/docs/sandboxes" title="Render Sandboxes overview">S1</a><a href="https://render.com/docs/sandboxes-files" title="Managing Sandbox Files">S2</a></div></article><article><h3>Beta boundaries</h3><p>Render Sandboxes are in public beta. Shared Filesystems are in early access. Private networking to other Render services and public URLs for applications running inside a sandbox are currently unavailable.</p><div class="refs"><a href="https://render.com/docs/sandboxes" title="Render Sandboxes overview">S1</a><a href="https://render.com/docs/sandboxes-files" title="Managing Sandbox Files">S2</a></div></article></div>
+</section>
+<section class="trace" aria-labelledby="trace-title">
+<p class="eyebrow">Recorded local trial</p>
+<h2 id="trace-title">The draft process stopped. The research survived.</h2>
+<p>The first drafting process was terminated after the research was saved. A fresh process reopened the same source packet and generated the brief above. Select a moment from the run.</p>
+<div class="steps" aria-label="Recorded run steps">
+<button type="button" aria-pressed="true" aria-controls="run-frame" data-step="0">1. Save research</button>
+<button type="button" aria-pressed="false" aria-controls="run-frame" data-step="1">2. Interrupt draft</button>
+<button type="button" aria-pressed="false" aria-controls="run-frame" data-step="2">3. Resume</button>
+</div>
+<div id="run-frame" class="frame" aria-live="polite" aria-atomic="true">
+<time>21:44:50.018 PST</time><h3>3 sources saved. 2 claims corrected.</h3><p>Codex reviewed the public sources and saved its claim decisions with them. The checkpoint keeps early access separate from public beta and flags the unsupported private-networking claim.</p>
+</div>
+<noscript><p>After the checkpoint was saved, the first draft process was terminated. A fresh process opened the unchanged checkpoint, skipped research, and saved a complete brief.</p></noscript>
+</section>
+<details>
+<summary>Review the source decisions and run evidence</summary>
+<div class="audit-grid"><article><h3>Access level</h3><p><strong>Test claim</strong><br>Shared Filesystems are available to all public beta workspaces.</p><p><strong>Codex correction</strong><br>Shared Filesystems are in early access.</p><div class="refs"><a href="https://render.com/docs/sandboxes-files" title="Managing Sandbox Files">S2</a></div></article><article><h3>Private networking</h3><p><strong>Test claim</strong><br>A sandbox can connect privately to other Render services.</p><p><strong>Codex correction</strong><br>Render Sandboxes do not yet provide private networking to other Render services or public URLs for applications running inside a sandbox.</p><div class="refs"><a href="https://render.com/docs/sandboxes" title="Render Sandboxes overview">S1</a></div></article></div>
+<p class="mono">Checkpoint SHA-256 · 4ef071efaa0c36e16e3d66ca6d58d1482923009af218ed5b473531ac8e37aa9d</p>
+<p class="mono">Resumed brief SHA-256 · 8706207f19d06537ea976fc810fb4ccd372fbb2862c9a738592424ab0063bbb7</p>
+<p>Source references from the verified public pages used in the trial:</p>
+<ol class="sources"><li><a href="https://render.com/docs/sandboxes">S1 · Render Sandboxes overview</a></li><li><a href="https://render.com/docs/sandboxes-files">S2 · Managing Sandbox Files</a></li><li><a href="https://render.com/blog/introducing-render-sandboxes">S3 · Render Sandboxes launch</a></li></ol>
+</details>
+<p class="footer">Candidate sample prepared with Codex. It uses public Render documentation. Codex executed the source review and drafting locally. The interruption test exercised local checkpoint recovery, separate from Render’s hosted runtime.</p>
+</main>
+<script id="trace-data" type="application/json">[{"time": "21:44:50.018 PST", "heading": "3 sources saved. 2 claims corrected.", "text": "Codex reviewed the public sources and saved its claim decisions with them. The checkpoint keeps early access separate from public beta and flags the unsupported private-networking claim."}, {"time": "21:44:50.906 PST", "heading": "Drafting process terminated before a brief existed.", "text": "The runner sent SIGTERM after Codex reported that the drafting turn had started. The process exited with status −15. There was no committed draft. The research checkpoint was still on disk."}, {"time": "21:46:48.669 PST", "heading": "A fresh process recovered the same checkpoint.", "text": "The checkpoint hash matched. The runner fetched zero sources and made zero new research model calls. A fresh Codex drafting turn saved the three-section brief at 21:46:59.905 PST."}]</script>
+<script>
+const trace = JSON.parse(document.getElementById("trace-data").textContent);
+const frame = document.getElementById("run-frame");
+const controls = [...document.querySelectorAll("[data-step]")];
+for (const button of controls) {
+  button.addEventListener("click", () => {
+    const step = trace[Number(button.dataset.step)];
+    controls.forEach(control => control.setAttribute("aria-pressed", String(control === button)));
+    frame.querySelector("time").textContent = step.time;
+    frame.querySelector("h3").textContent = step.heading;
+    frame.querySelector("p").textContent = step.text;
+  });
+}
+</script>
+</body>
+</html>
